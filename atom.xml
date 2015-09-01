@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Wu Yongfeng - Blog]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://kymtwyf.github.io/"/>
+  <updated>2015-09-01T16:07:13.000Z</updated>
+  <id>http://kymtwyf.github.io/</id>
+  
+  <author>
+    <name><![CDATA[Wu Yongfeng]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[xiaoji]]></title>
+    <link href="http://kymtwyf.github.io/2015/09/02/xiaoji/"/>
+    <id>http://kymtwyf.github.io/2015/09/02/xiaoji/</id>
+    <published>2015-09-01T16:07:13.000Z</published>
+    <updated>2015-09-01T16:07:13.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Why kymtwyf]]></title>
+    <link href="http://kymtwyf.github.io/2015/09/02/first-post/"/>
+    <id>http://kymtwyf.github.io/2015/09/02/first-post/</id>
+    <published>2015-09-01T16:04:34.000Z</published>
+    <updated>2015-09-01T16:04:34.000Z</updated>
+    <content type="html"><![CDATA[<p>  解释一下为什么我用kymtwyf，理由很简单，因为我打五笔:)</p>
+<p>##五笔里怎么打”吴永峰”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">吴：kgd </span><br><span class="line">永：yni </span><br><span class="line">峰: mtdh</span><br></pre></td></tr></table></figure>
+<hr>
+<p>  连起来打三个字的话就是第一字的k，第二字的y，第三字二笔mt。刚申请gmail的时候，很naive地认为可以申请到wuyongfeng的用户名。结果申请不到，但又由于最小6位的限制，所以就打了两遍我的名字kymtwyf就这样出来了:) </p>
+<p>  以后我会在这里发一些笔记，欢迎订阅!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>  解释一下为什么我用kymtwyf，理由很简单，因为我打五笔:)</p>
+<p>##五笔里怎么打”吴永峰”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class=]]>
+    </summary>
+    
+      <category term="trivial" scheme="http://kymtwyf.github.io/tags/trivial/"/>
+    
+  </entry>
+  
+</feed>
