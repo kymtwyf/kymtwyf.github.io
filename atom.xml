@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kymtwyf.github.io/"/>
-  <updated>2015-09-02T14:54:26.000Z</updated>
+  <updated>2015-09-12T09:39:16.000Z</updated>
   <id>http://kymtwyf.github.io/</id>
   
   <author>
@@ -13,6 +13,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[真不好意思说我学过sql]]></title>
+    <link href="http://kymtwyf.github.io/2015/09/08/mysql-calendar-table-usage/"/>
+    <id>http://kymtwyf.github.io/2015/09/08/mysql-calendar-table-usage/</id>
+    <published>2015-09-07T16:31:09.000Z</published>
+    <updated>2015-09-12T09:39:16.000Z</updated>
+    <content type="html"><![CDATA[<p>最近写查询遇到这样一个情况。我需要查到一段时间（比如2015-06-15到2015-07-01）内每一天的总价格。<br>可当我写sql查询的时候，发现如果一天没有内容，那么这一天的数据将不会被sql查出来，意味着从开始到结束的日期中可能会有中断。</p>
+<figure class="highlight sql"><figcaption><span>查询.sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">select <span class="keyword">DATE_FORMAT</span>( <span class="keyword">cast</span>(created_at <span class="keyword">as</span> <span class="built_in">date</span>), <span class="string">'%Y-%m-%d'</span>) <span class="keyword">as</span> <span class="built_in">date</span>, <span class="keyword">count</span>(*) <span class="keyword">as</span> <span class="keyword">num</span> <span class="keyword">from</span> </span><br><span class="line"><span class="string">`order`</span> <span class="keyword">where</span> <span class="string">`id`</span> = <span class="number">3</span>  <span class="keyword">and</span> <span class="string">`created_at`</span>  <span class="keyword">between</span> <span class="string">'2015-06-15'</span> <span class="keyword">and</span> <span class="string">'2015-07-01'</span> </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">cast</span>(created_at <span class="keyword">as</span> <span class="built_in">date</span>)</span></span><br></pre></td></tr></table></figure>
+<p>这样的查询结果如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">22</span>	<span class="number">2</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">23</span>	<span class="number">25</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">24</span>	<span class="number">60</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">25</span>	<span class="number">41</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">26</span>	<span class="number">65</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">27</span>	<span class="number">72</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">28</span>	<span class="number">81</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">29</span>	<span class="number">87</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">30</span>	<span class="number">59</span></span><br></pre></td></tr></table></figure></p>
+<p>发现中间没有数据的日期没被正确填充。</p>
+<p>在经过一番了解之后找到了一个比较靠谱的做法，如下：<br>首先根据这个 <a href="http://stackoverflow.com/questions/10132024/how-to-populate-a-table-with-a-range-of-dates/19587992#19587992" target="_blank" rel="external">PROCEDURE</a> 创建一个PROCEDURE 并插入数据</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">DROP <span class="function"><span class="keyword">PROCEDURE</span> <span class="title">IF</span> <span class="title">EXISTS</span> <span class="title">FillCalendar</span>;</span></span><br><span class="line">DROP TABLE <span class="keyword">IF</span> EXISTS calendar;</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="keyword">IF</span> <span class="keyword">NOT</span> EXISTS calendar(date DATE <span class="keyword">NOT</span> NULL PRIMARY KEY);</span><br><span class="line"></span><br><span class="line">DELIMITER $$</span><br><span class="line">    <span class="keyword">CREATE</span> <span class="function"><span class="keyword">PROCEDURE</span> <span class="title">FillCalendar</span><span class="params">(start_date DATE, end_date DATE)</span></span><br><span class="line">    <span class="title">BEGIN</span></span><br><span class="line">    <span class="title">DECLARE</span> <span class="title">crt_date</span> <span class="title">DATE</span>;</span></span><br><span class="line">    <span class="keyword">SET</span> crt_date = start_date;</span><br><span class="line">    <span class="keyword">WHILE</span> crt_date &lt;= end_date <span class="keyword">DO</span></span><br><span class="line">        INSERT IGNORE <span class="keyword">INTO</span> calendar VALUES(crt_date);</span><br><span class="line">        <span class="keyword">SET</span> crt_date = ADDDATE(crt_date, INTERVAL <span class="number">1</span> DAY);</span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line">    <span class="keyword">END</span>$$</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">CALL FillCalendar(<span class="string">'2000-01-01'</span>, <span class="string">'2050-12-31'</span>);<span class="comment">// 这里插入的是需要用的时间段，我在calendar表中插入了2000~2050年的数据</span></span><br></pre></td></tr></table></figure>
+<p>插入完成之后就可以将<code>calendar</code>表和<code>order</code>表进行连接，在order表中缺少的字段，默认取0。这里应用了一个SQL的函数 <a href="http://stackoverflow.com/questions/13366488/coalesce-function-in-tsql" target="_blank" rel="external"><code>COALESCE</code></a></p>
+<p>插入完后calendar表内容：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">date</span><br><span class="line">----------</span><br><span class="line"><span class="number">2000</span>-<span class="number">01</span>-<span class="number">01</span></span><br><span class="line"><span class="number">2000</span>-<span class="number">01</span>-<span class="number">02</span></span><br><span class="line">...</span><br><span class="line"><span class="number">2015</span>-<span class="number">12</span>-<span class="number">30</span></span><br><span class="line"><span class="number">2050</span>-<span class="number">12</span>-<span class="number">31</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="COALESCE函数的作用">COALESCE函数的作用</h4><p><strong>返回其参数中第一个非空表达式</strong></p>
+<figure class="highlight sql"><figcaption><span>更新后的sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">select a.<span class="built_in">date</span> ,<span class="keyword">COALESCE</span>(b.<span class="keyword">num</span>, <span class="number">0</span>) <span class="keyword">num</span> <span class="keyword">from</span> calendar a </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">(</span><br><span class="line">select <span class="keyword">DATE_FORMAT</span>( <span class="keyword">cast</span>(created_at <span class="keyword">as</span> <span class="built_in">date</span>), <span class="string">'%Y-%m-%d'</span>) <span class="keyword">as</span> <span class="built_in">date</span>, <span class="keyword">count</span>(*) <span class="keyword">as</span> <span class="string">`num`</span> <span class="keyword">from</span> <span class="string">`order`</span> <span class="keyword">where</span> <span class="string">`id`</span> = <span class="number">3</span> <span class="keyword">and</span> <span class="string">`created_at`</span>  <span class="keyword">between</span> <span class="string">'2015-06-15'</span> <span class="keyword">and</span> <span class="string">'2015-07-01'</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">cast</span>(created_at <span class="keyword">as</span> <span class="built_in">date</span>)</span><br><span class="line">) b</span><br><span class="line"><span class="keyword">on</span> b.<span class="built_in">date</span>=a.<span class="built_in">date</span></span><br><span class="line"><span class="keyword">where</span> a.<span class="string">`date`</span> <span class="keyword">between</span> <span class="string">'2015-06-15'</span> <span class="keyword">and</span> <span class="string">'2015-07-01'</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> a.<span class="string">`date`</span> <span class="keyword">asc</span></span></span><br></pre></td></tr></table></figure>
+<p>这样得到的输出：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">15</span>	<span class="number">0</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">16</span>	<span class="number">0</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">17</span>	<span class="number">0</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">18</span>	<span class="number">0</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">19</span>	<span class="number">0</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">20</span>	<span class="number">0</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">21</span>	<span class="number">0</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">22</span>	<span class="number">2</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">23</span>	<span class="number">25</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">24</span>	<span class="number">60</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">25</span>	<span class="number">41</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">26</span>	<span class="number">65</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">27</span>	<span class="number">72</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">28</span>	<span class="number">81</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">29</span>	<span class="number">87</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">30</span>	<span class="number">59</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">07</span>-<span class="number">01</span>	<span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>这个问题一开始纠结了比较久，原因是在找有没有不加calendar表能做到同样的效果。还有那个COALESCE函数的用法。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近写查询遇到这样一个情况。我需要查到一段时间（比如2015-06-15到2015-07-01）内每一天的总价格。<br>可当我写sql查询的时候，发现如果一天没有内容，那么这一天的数据将不会被sql查出来，意味着从开始到结束的日期中可能会有中断。</p>
+<figure ]]>
+    </summary>
+    
+      <category term="calendar table" scheme="http://kymtwyf.github.io/tags/calendar-table/"/>
+    
+      <category term="mysql" scheme="http://kymtwyf.github.io/tags/mysql/"/>
+    
+      <category term="sql" scheme="http://kymtwyf.github.io/tags/sql/"/>
+    
+      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[前端，我只懂个皮毛]]></title>
@@ -48,7 +83,7 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Hexo Installation Note]]></title>
+    <title><![CDATA[hexo installation note]]></title>
     <link href="http://kymtwyf.github.io/2015/09/02/hexo-install-note/"/>
     <id>http://kymtwyf.github.io/2015/09/02/hexo-install-note/</id>
     <published>2015-09-02T06:38:11.000Z</published>
@@ -84,7 +119,7 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Why Kymtwyf]]></title>
+    <title><![CDATA[Why kymtwyf]]></title>
     <link href="http://kymtwyf.github.io/2015/09/02/first-post/"/>
     <id>http://kymtwyf.github.io/2015/09/02/first-post/</id>
     <published>2015-09-01T16:44:36.000Z</published>
@@ -109,7 +144,7 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Xiaoji]]></title>
+    <title><![CDATA[xiaoji]]></title>
     <link href="http://kymtwyf.github.io/2015/09/02/2015-09-02-xiaoji/"/>
     <id>http://kymtwyf.github.io/2015/09/02/2015-09-02-xiaoji/</id>
     <published>2015-09-01T16:07:13.000Z</published>
