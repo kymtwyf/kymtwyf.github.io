@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kymtwyf.github.io/"/>
-  <updated>2015-10-02T15:44:23.000Z</updated>
+  <updated>2015-11-10T16:11:01.000Z</updated>
   <id>http://kymtwyf.github.io/</id>
   
   <author>
@@ -13,6 +13,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Sequel Pro 导出表结构图]]></title>
+    <link href="http://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/"/>
+    <id>http://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/</id>
+    <published>2015-10-11T16:52:28.000Z</published>
+    <updated>2015-11-10T16:11:01.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="步骤">步骤</h1><ol>
+<li>用Sequel Pro导出<a href="https://en.wikipedia.org/wiki/DOT_(graph_description_language" target="_blank" rel="external">Dot</a>)文件<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File<span class="subst">-&gt; </span>Export<span class="attribute">...</span> <span class="subst">-&gt; </span>Dot</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_976/v1447171688/undefined_rbvm4m.png" alt="导出"></p>
+<ol>
+<li>用dot命令（需要先安装graphviz）将dot转为图片<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">dot</span> <span class="tag">-Tjpg</span> <span class="tag">test</span><span class="class">.dot</span> &gt; <span class="tag">test</span><span class="class">.jpg</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>最后导出的图如下：<br><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1447171824/undefined_euzdji.png" alt="图片"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="步骤">步骤</h1><ol>
+<li>用Sequel Pro导出<a href="https://en.wikipedia.org/wiki/DOT_(graph_description_language" target="_blank" rel="extern]]>
+    </summary>
+    
+      <category term="Mac" scheme="http://kymtwyf.github.io/tags/Mac/"/>
+    
+      <category term="Sequel Pro" scheme="http://kymtwyf.github.io/tags/Sequel-Pro/"/>
+    
+      <category term="mysql" scheme="http://kymtwyf.github.io/tags/mysql/"/>
+    
+      <category term="table schema" scheme="http://kymtwyf.github.io/tags/table-schema/"/>
+    
+      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Error Could not symlink share/man/man7/]]></title>
+    <link href="http://kymtwyf.github.io/2015/10/12/brew-priviledge/"/>
+    <id>http://kymtwyf.github.io/2015/10/12/brew-priviledge/</id>
+    <published>2015-10-11T16:43:49.000Z</published>
+    <updated>2015-10-11T16:50:59.000Z</updated>
+    <content type="html"><![CDATA[<p>用brew安装包的时候出现<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error: Could not symlink share/<span class="keyword">man</span>/man7/graphviz.7 </span><br><span class="line">/usr/local/share/<span class="keyword">man</span>/man7 <span class="keyword">is</span> not writable.</span><br><span class="line">错误。</span><br></pre></td></tr></table></figure></p>
+<p>原因是brew link的时候没有root权限，但又不建议用sudo。所以简单粗暴的方法是将/usr/local的owner改为当前用户</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> -R <span class="string">`whoami`</span> /usr/<span class="keyword">local</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>参考<a href="http://superuser.com/a/450207" target="_blank" rel="external">这里</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>用brew安装包的时候出现<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2]]>
+    </summary>
+    
+      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[小A、小B和小C同学的外包项目]]></title>
