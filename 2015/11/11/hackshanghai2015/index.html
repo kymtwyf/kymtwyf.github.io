@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Wu Yongfeng - Blog">
+    <title>HackShanghai 2015小记 - Wu Yongfeng - Blog</title>
+    <meta name="author" content="Wu Yongfeng">
+    
+        <link rel="icon" href="/assets/images/favicon.ico">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="上周末（2015.11.07-08）两天去上海纽约大学（一所很土豪的学校，据说学费是4.5万刀一年）参加了黑客马拉松比赛。
+这是我第二次参加此活动，去年由畅哥带领着做了一次。上次参赛的项目大概的idea是用pepple watch发送简单的自定义消息。比如亲人间的示爱或者老年人危急时的求助消息。
+这一次我们的想法也是结合硬件去做一些事情，但参赛前并没有非常具体，只是想看比赛方提供什么再决定做。当得">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="HackShanghai 2015小记">
+<meta property="og:url" content="http://kymtwyf.github.io/2015/11/11/hackshanghai2015/index.html">
+<meta property="og:site_name" content="Wu Yongfeng - Blog">
+<meta property="og:description" content="上周末（2015.11.07-08）两天去上海纽约大学（一所很土豪的学校，据说学费是4.5万刀一年）参加了黑客马拉松比赛。
+这是我第二次参加此活动，去年由畅哥带领着做了一次。上次参赛的项目大概的idea是用pepple watch发送简单的自定义消息。比如亲人间的示爱或者老年人危急时的求助消息。
+这一次我们的想法也是结合硬件去做一些事情，但参赛前并没有非常具体，只是想看比赛方提供什么再决定做。当得">
+<meta property="og:image" content="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,h_500/v1447221082/Choregraphe2_qu26yt.jpg">
+<meta property="og:image" content="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,h_500/v1447221074/Choregraphe_exgbhc.jpg">
+<meta property="og:updated_time" content="2015-11-11T06:22:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HackShanghai 2015小记">
+<meta name="twitter:description" content="上周末（2015.11.07-08）两天去上海纽约大学（一所很土豪的学校，据说学费是4.5万刀一年）参加了黑客马拉松比赛。
+这是我第二次参加此活动，去年由畅哥带领着做了一次。上次参赛的项目大概的idea是用pepple watch发送简单的自定义消息。比如亲人间的示爱或者老年人危急时的求助消息。
+这一次我们的想法也是结合硬件去做一些事情，但参赛前并没有非常具体，只是想看比赛方提供什么再决定做。当得">
+    
+    
+    
+    
+        <meta property="og:image" content="/2015/11/11/hackshanghai2015/http://res.cloudinary.com/denrcs4mp/image/upload/v1447173126/hackShanghai_znombm.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://kymtwyf.github.io/2015/11/11/hackshanghai2015/http://res.cloudinary.com/denrcs4mp/image/upload/v1447173126/hackShanghai_znombm.png" />
+    
+    
+        <meta property="og:image" content="/2015/11/11/hackshanghai2015/http://res.cloudinary.com/denrcs4mp/image/upload/v1447172049/developer_20DSC_0140_eburmq.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://kymtwyf.github.io/2015/11/11/hackshanghai2015/http://res.cloudinary.com/denrcs4mp/image/upload/v1447172049/developer_20DSC_0140_eburmq.jpg" />
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c65c4dfed20ce4a1fb28332bd37ddac3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Wu Yongfeng - Blog</a>
+    </h1>
+    
+</header>
+            <nav id="sidebar" data-behavior="3">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/kymtwyf" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://weibo.com/kymtwyf" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-weibo"></i>
+                    <span class="sidebar-button-desc">Weibo</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://www.linkedin.com/in/wuyongfeng" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">Linked In</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:kymtwyf@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+        <div class="post-header-cover
+                    text-center
+                    post-header-cover--partial"
+             style="background-image:url('http://res.cloudinary.com/denrcs4mp/image/upload/v1447172049/developer_20DSC_0140_eburmq.jpg');"
+             data-behavior="3">
+            
+        </div>
+
+            <div id="main" data-behavior="3"
+                 class="hasCover
+                        hasCoverMetaOut
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-center">
+    
+        <h1 class="post-title" itemprop="headline">
+            HackShanghai 2015小记
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Wed Nov 11 2015 00:13:21 GMT+0800">
+	
+		    Nov 11, 2015
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Diary/">Diary</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>上周末（2015.11.07-08）两天去上海纽约大学（一所很土豪的学校，据说学费是4.5万刀一年）参加了黑客马拉松比赛。</p>
+<p>这是我第二次参加此活动，去年由畅哥带领着做了一次。上次参赛的项目大概的idea是用pepple watch发送简单的自定义消息。比如亲人间的示爱或者老年人危急时的求助消息。</p>
+<p>这一次我们的想法也是结合硬件去做一些事情，但参赛前并没有非常具体，只是想看比赛方提供什么再决定做。当得知提供的硬件包括：Arduino/ Leap Motion/ Pebble/ Nao/ Google Cardboard 后，我就打算玩一下Nao机器人，再结合Leap Motion什么的做点儿有意思的东西~</p>
+<p>（周六的时候先去报道注册，中午实验室聚餐还去吃了蟹王府，人均420应该是我自己掏钱吃过最贵的餐了TAT。 在eBay实习时去的和平饭店一直是我的巅峰）</p>
+<h3 id="关于Nao机器人">关于Nao机器人</h3><p>下午3点多吃完饭到NYU Shanghai 参加比赛才得知<strong>图林机器人</strong>只提供一台Nao机器人给大家用，而那个叫<strong>图林机器人</strong>的家伙是一个人工智能的API。我们就把我们的参赛想法提交给他们之后等消息。。。</p>
+<p>以下是我们一开始的想法：</p>
+<blockquote>
+<p>中国在过去的几十年里度过了一个很漫长的独生子女阶段，父母在忙碌时往往会给幼儿带来孤独的生长环境，所以幼儿更需要一个智慧的可以互相交互的有趣玩伴，我们想创造一个和幼儿互动玩乐的新方式，通过leap motion输入指令，云端传输数据，无论家长远在公司，还是近在家里，都可以将自己的动作转化成nao的乐趣行为，为孩子带来一个更美好有趣的童年。</p>
+</blockquote>
+<p>最终我们组的idea过了一关，拿到Nao机器人的玩耍权。</p>
+<p>哈，听上去确实有点儿远大。我们也知道怎么实现。拿到机器人才知道问题挺多的。</p>
+<h3 id="首先，我们不知道怎么让机器人动起来。">首先，我们不知道怎么让机器人动起来。</h3><p>图林机器人只给了一个email，大概讲述了一下资料怎么来。我们需要在第一次使用的时候登录Nao机器人（用网线连接。。。）我们都没有带 ，只能问工作人员。申请了好久，大概5点多才拿到线…</p>
+<p>用网线连接Nao机器人，按一下按钮，Nao自动读出IP地址“大家好，我是Nao，我的互联网地址是十、两百零九…” 连接好之后再安装了<strong>choregraphe</strong> 一个IDE。这个IDE比较方便地让我们操作Nao机器人，并且提供了一些预置的功能比如说话、做动作、语音识别。</p>
+<div class="figure nocaption fig-50"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_3004/v1447221082/Choregraphe2_qu26yt.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,h_500/v1447221082/Choregraphe2_qu26yt.jpg" ui1""="" width="" height="" alt=""></a></div>
+<div class="figure nocaption fig-50"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/v1447221074/Choregraphe_exgbhc.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,h_500/v1447221074/Choregraphe_exgbhc.jpg" ui2""="" width="" height="" alt=""></a></div>
+<p>感谢辛博提供的大力支持，王东老师实验室在前阵子无锡展会的时候用过Nao机器人，所以辛博在这方面有一些经验。原来Nao机器人内置一个Linux，所以可以运行Python。Python可以用来做为服务器处理socket请求或者做一个http服务器。所以我们改变了计划，转用python来做。</p>
+<p>组员都不是很擅长Python,个人只是写过一个小小的爬虫，也是边查边写的… 所以在黑马24小时中我们怒学python！</p>
+<p>Nao 提供了一系列SDK，其中包括C++, JAVA 和python（这些都是后面才慢慢发现的）但PythonSDK(pynaoqi-python-2.7)并不支持EI CAPTAIN… RLGL</p>
+<h3 id="一开始进度非常慢">一开始进度非常慢</h3><p>第一天晚上12点之前 ，我们还只会拖动几个框框去让机器人自己做动作。但之后迅速找到方法，包括建立socket服务器之后建立http服务器来接收指令。 </p>
+<p>所以我们凭借已经掌握的基本技术，做了一个如下的应用：</p>
+<blockquote>
+<p>家长可以通过远程操作（我们做的一个简单的Android应用程序）来操作机器人<br>机器人可以说话，做动作，背三字经，拍照并发回手机</p>
+</blockquote>
+<h3 id="演讲总是那么令我担心">演讲总是那么令我担心</h3><p>一开始在小赛场我们组进行演示的时候还是蛮顺利的，除了我因为紧张语速太快… （全程英语，语法应该有点乱） 不过评委也觉得挺新鲜，并没有提太多问题。所以我们也以为机器人就这样表演结束了。 把它关机并放在行李箱里准备还回去呢。结果在吃麦当劳的时候听到咱们的队伍名”Play with me”！进了TOP 9!</p>
+<h3 id="总决赛有惊">总决赛有惊</h3><p>我们的操作基本上是可以进行的，但由于场地网络原因以及中间有一次“小六子”休眠了。。。我们跑出去调试了好久，最后有一阵居然连不上无线网，确实想吐槽。</p>
+<p>不过还好我们发现了一段 江南Style的舞蹈，在一次次无法控制的最后放了出来 ，缓解了现场紧张的气氛。</p>
+<p>视频放送如下：</p>
+<div class="video-container"><iframe src="//player.vimeo.com/video/145360488" frameborder="0" allowfullscreen></iframe></div>
+<h3 id="小结">小结</h3><p>HackShanghai比赛还是比较不错的黑客马拉松（号称全中国最大的黑客马拉松） 但本次活动在饮食、网络上都有一些槽点。参加比赛玩硬件的组还是比较多的，第一名是一个交互的游戏，看着也挺有意思。但我感觉做搜索引擎视频广告的创意比较厉害，甚至之后可能会成为一个广告投放的方向。 其他一些组的idea由于在外面调试小六子，所以没来得及看。</p>
+<p>我发现我还是蛮有激情的，一晚上只睡了两三个小时，却依然精力旺盛！希望以后投入更多的精力到棒棒的idea上来， DO GREAT THINGS!</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Android/">Android</a> <a class="tag tag--primary tag--small t-link" href="/tags/Nao-Robot/">Nao Robot</a> <a class="tag tag--primary tag--small t-link" href="/tags/Python/">Python</a> <a class="tag tag--primary tag--small t-link" href="/tags/hackshanghai/">hackshanghai</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/12/Sequel-Pro-export-table-schema-diagram/" data-tooltip="Sequel Pro 导出表结构图">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2015/11/11/hackshanghai2015/&amp;title=[Wu Yongfeng&#39;s Blog] HackShanghai 2015小记&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1447173126/hackShanghai_znombm.png">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2015 Wu Yongfeng. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/12/Sequel-Pro-export-table-schema-diagram/" data-tooltip="Sequel Pro 导出表结构图">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2015/11/11/hackshanghai2015/&amp;title=[Wu Yongfeng&#39;s Blog] HackShanghai 2015小记&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1447173126/hackShanghai_znombm.png">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2015/11/11/hackshanghai2015/&amp;title=[Wu Yongfeng&#39;s Blog] HackShanghai 2015小记&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1447173126/hackShanghai_znombm.png">
+                <i class="fa fa-weibo"></i><span class="">Share on Weibo</span>
+            </a>
+        </li>        
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Wu Yongfeng</h4>
+        
+            <h5 id="about-card-bio"><p>不会写代码</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Student</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Shanghai
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/v1.3.0-cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'wuyongfeng';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+
+</html>
