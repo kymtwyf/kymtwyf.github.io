@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Wu Yongfeng - Blog">
+    <title>基于token验证的web应用jAccount登录 - Wu Yongfeng - Blog</title>
+    <meta name="author" content="Wu Yongfeng">
+    
+        <link rel="icon" href="/assets/images/favicon.ico">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="最近在做一个学校的项目，需要提供给上海交通大学学生和老师使用，所以需要使用jAccount登录
+jAccount简介【详情看这里】
+
+jAccount认证体系是上海交通大学网络信息中心开发的用户认证体系。网络信息中心为每个注册的交大校园网用户提供了一个统一的网络账户，称为 jAccount
+
+然后jAccount里面包含的信息如下：
+checkLogin 返回的Hashtable中包含了该用户的一">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="基于token验证的web应用jAccount登录">
+<meta property="og:url" content="http://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/index.html">
+<meta property="og:site_name" content="Wu Yongfeng - Blog">
+<meta property="og:description" content="最近在做一个学校的项目，需要提供给上海交通大学学生和老师使用，所以需要使用jAccount登录
+jAccount简介【详情看这里】
+
+jAccount认证体系是上海交通大学网络信息中心开发的用户认证体系。网络信息中心为每个注册的交大校园网用户提供了一个统一的网络账户，称为 jAccount
+
+然后jAccount里面包含的信息如下：
+checkLogin 返回的Hashtable中包含了该用户的一">
+<meta property="og:updated_time" content="2015-12-22T08:14:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于token验证的web应用jAccount登录">
+<meta name="twitter:description" content="最近在做一个学校的项目，需要提供给上海交通大学学生和老师使用，所以需要使用jAccount登录
+jAccount简介【详情看这里】
+
+jAccount认证体系是上海交通大学网络信息中心开发的用户认证体系。网络信息中心为每个注册的交大校园网用户提供了一个统一的网络账户，称为 jAccount
+
+然后jAccount里面包含的信息如下：
+checkLogin 返回的Hashtable中包含了该用户的一">
+    
+    
+    
+    
+        <meta property="og:image" content="/2015/11/13/jaccount-login-for-token-based-webapp/http://res.cloudinary.com/denrcs4mp/image/upload/v1447427096/undefined_oqwtxf.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/http://res.cloudinary.com/denrcs4mp/image/upload/v1447427096/undefined_oqwtxf.png" />
+    
+    
+        <meta property="og:image" content="/2015/11/13/jaccount-login-for-token-based-webapp/http://res.cloudinary.com/denrcs4mp/image/upload/v1447427042/undefined_fxh8zf.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/http://res.cloudinary.com/denrcs4mp/image/upload/v1447427042/undefined_fxh8zf.png" />
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c65c4dfed20ce4a1fb28332bd37ddac3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Wu Yongfeng - Blog</a>
+    </h1>
+    
+</header>
+            <nav id="sidebar" data-behavior="3">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/kymtwyf" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://weibo.com/kymtwyf" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-weibo"></i>
+                    <span class="sidebar-button-desc">Weibo</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://www.linkedin.com/in/wuyongfeng" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">Linked In</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:kymtwyf@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+        <div class="post-header-cover
+                    text-center
+                    post-header-cover--partial"
+             style="background-image:url('http://res.cloudinary.com/denrcs4mp/image/upload/v1447427042/undefined_fxh8zf.png');"
+             data-behavior="3">
+            
+        </div>
+
+            <div id="main" data-behavior="3"
+                 class="hasCover
+                        hasCoverMetaOut
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-center">
+    
+        <h1 class="post-title" itemprop="headline">
+            基于token验证的web应用jAccount登录
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Fri Nov 13 2015 23:01:19 GMT+0800">
+	
+		    Nov 13, 2015
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Tech/">Tech</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>最近在做一个学校的项目，需要提供给上海交通大学学生和老师使用，所以需要使用<a href="http://developer.sjtu.edu.cn/wiki/JAccount" target="_blank" rel="external">jAccount登录</a></p>
+<h3 id="jAccount简介">jAccount简介</h3><p><a href="https://jaccount.sjtu.edu.cn/jaccount/index.jsp" target="_blank" rel="external">【详情看这里】</a></p>
+<blockquote>
+<p>jAccount认证体系是上海交通大学网络信息中心开发的用户认证体系。网络信息中心为每个注册的交大校园网用户提供了一个统一的网络账户，称为 jAccount</p>
+</blockquote>
+<p>然后jAccount里面包含的<a href="http://developer.sjtu.edu.cn/wiki/JAccount#.E8.BF.94.E5.9B.9E.E7.9A.84Hashtable" target="_blank" rel="external">信息如下</a>：</p>
+<h3 id="checkLogin_返回的Hashtable中包含了该用户的一些属性，包括：">checkLogin 返回的Hashtable中包含了该用户的一些属性，包括：</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">属性值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">uid</td>
+<td style="text-align:center">账号名(指jAccount)</td>
+</tr>
+<tr>
+<td style="text-align:center">student</td>
+<td style="text-align:center">yes:学生/no:教职员工/team:集体帐号/outside:校外用户/postphd:博士后/alumni:校友</td>
+</tr>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">工号/学号</td>
+</tr>
+<tr>
+<td style="text-align:center">dept</td>
+<td style="text-align:center">部门/院系</td>
+</tr>
+<tr>
+<td style="text-align:center">chinesename</td>
+<td style="text-align:center">姓名</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>吐槽</strong>：这些属性我也是醉了，用户的身份居然用student用 yes/no…来表示。然后dept字段是院系以及部门信息，但这些数据居然是文字信息直接是人手动改的！</p>
+<p>后来，我发现更让我震惊的事情就是堂堂交大，所有学生信息居然没有一个准确可靠的来源！比较准确的来源也有这么多信息未更新或者已经错误了。</p>
+<hr>
+<h3 id="回到正题">回到正题</h3><ol>
+<li><p>jAccount基于Base64进行加密和解密，所以需要先导入相关依赖</p>
+</li>
+<li><p>想要使用jAccount来做认证，首先需要去一些部门盖章，步骤相当繁琐，此处省略1W字。申请完成之后会有一些资料包括jaccount key 和 secret当然还有一个开发包<strong>jaman.jar</strong></p>
+</li>
+<li><p>把key文件放在webapp/jakey文件夹下（可放置在别处）</p>
+</li>
+<li><p>好像这样就可以了。。。</p>
+</li>
+</ol>
+<h3 id="jaccount的原理简单分析">jaccount的原理简单分析</h3><p>参考文档中有这样的示例代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">JAccountManager jam = <span class="keyword">new</span> JAccountManager(<span class="string">"jacw110330"</span>, getServletContext().getRealPath(<span class="string">"/"</span>));<span class="comment">// 创建JAccountManager对象</span></span><br><span class="line">Hashtable ht = jam.checkLogin(request, response, session, request.getRequestURI());<span class="comment">//checkLogin时做一些重定向</span></span><br><span class="line"><span class="keyword">if</span> (ht !=<span class="keyword">null</span> &amp;&amp; jam.hasTicketInURL) &#123;</span><br><span class="line">    jam.redirectWithoutTicket(response);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>JAccountManager.checkLogin里面做三个步骤的check</p>
+<ol>
+<li>hasValidTicket，检查url参数 jatkt（其中含userProfile的hashtable）</li>
+<li>isSiteCookieValid，检查JASiteCookie 是否存在 （其中也含userProfile的hashtable）</li>
+<li>重定向到jaccount登录页面</li>
+<li>登录后返回到 <code>jam.checkLogin()</code> 提供的returnUrl上</li>
+</ol>
+<p>如果是基于token验证的应用，这里拿到学生信息之后可以进行匹配并生成token返回。</p>
+<h3 id="登出">登出</h3><p>jam提供一个<code>logout</code>函数，但调用之后还是有点儿问题，cookie清除不对，研究了几天了还是没结果… 下次如果记得会补上，这个问题必须修的。</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/jAccount/">jAccount</a> <a class="tag tag--primary tag--small t-link" href="/tags/sjtu/">sjtu</a> <a class="tag tag--primary tag--small t-link" href="/tags/spring/">spring</a> <a class="tag tag--primary tag--small t-link" href="/tags/token-based-auth/">token based auth</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/11/hackshanghai2015/" data-tooltip="HackShanghai 2015小记">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/&amp;title=[Wu Yongfeng&#39;s Blog] 基于token验证的web应用jAccount登录&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1447427096/undefined_oqwtxf.png">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2015 Wu Yongfeng. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/11/hackshanghai2015/" data-tooltip="HackShanghai 2015小记">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/&amp;title=[Wu Yongfeng&#39;s Blog] 基于token验证的web应用jAccount登录&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1447427096/undefined_oqwtxf.png">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/&amp;title=[Wu Yongfeng&#39;s Blog] 基于token验证的web应用jAccount登录&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1447427096/undefined_oqwtxf.png">
+                <i class="fa fa-weibo"></i><span class="">Share on Weibo</span>
+            </a>
+        </li>        
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Wu Yongfeng</h4>
+        
+            <h5 id="about-card-bio"><p>不会写代码</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Student</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Shanghai
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/v1.3.0-cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'wuyongfeng';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+
+</html>
