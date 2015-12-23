@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kymtwyf.github.io/"/>
-  <updated>2015-12-22T08:14:29.000Z</updated>
+  <updated>2015-12-23T08:24:27.000Z</updated>
   <id>http://kymtwyf.github.io/</id>
   
   <author>
@@ -13,6 +13,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Works Applications 实习经历]]></title>
+    <link href="http://kymtwyf.github.io/2015/12/22/internship-at-works-applications/"/>
+    <id>http://kymtwyf.github.io/2015/12/22/internship-at-works-applications/</id>
+    <published>2015-12-22T08:17:57.000Z</published>
+    <updated>2015-12-23T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Works_Appliations">Works Appliations</h2><h3 id="面试经过">面试经过</h3><p>关于这家公司的印象大致也就是给的工资比较多，比一般应届毕业生高出不少，其他就没有多少了。</p>
+<p>后面通宣讲会知道是做ERP的，但没SAP和ORACLE这样的规模，抱着试试的态度参加了面试。过程是：</p>
+<ol>
+<li>线下题，给两天做</li>
+<li>线下题目过了之后on site面试</li>
+<li>onsite 面试过了之后有两种情况<ol>
+<li>如果是非常优秀，直接发offer(小伙伴泡泡算是这种，他因为有事没法去实习，加了一轮技术面直接拿Offer)</li>
+<li>如果是需要评估，去实习几天然后给offer（多数人是这种情况）</li>
+</ol>
+</li>
+</ol>
+<p>线下题目好像基本上没变过（和八月份的好像是一样的）一题递归，一题深搜。我水过。</p>
+<p>onsite出的结果也比较迟，时间定在周末。onsite的过程也比较简单，全程英语面试，题目是字符串处理的题目，比如找最长子串…整体反馈是比较简单，然而我也没怎么做好，大概面试官看我是交大的放我一马进了实习…</p>
+<p>实习地点有两个，一个北京、一个广州。北京正好由于时间不巧没去成，所以选了广州去实习。</p>
+<h3 id="实习经过">实习经过</h3><p>印象最深的就是这段时间了，虽然只有五天时间，实际也就2天改文档加编程。在实习期之前我们被分配了一个document task的任务，题目是作为主要用户是酒店经理的管理软件，你怎么帮助酒店创收。对于酒店管理了解也不是很多，咨询了我学酒店管理的兄弟，了解了一些Oracle的产品，然后就开始随便写了。</p>
+<p>一开始我写的都是一些比较基础的功能，交了初版之后得到的反馈也是如此，没有创新也是比较普通的功能。后来想了几个觉得还不错的主意，比如有一个统计分析模块，可以根据这个模块进行实习分析并做出决策。还有客户关系管理模块等。然后第二版递交之后就过了这个task得到广州实习的机会（这个task应该没刷人我觉得）</p>
+<ul>
+<li><p>12号下午的飞机，晚上10点到的雅乐轩酒店。</p>
+</li>
+<li><p>13号开始orientation和Catalog refine，这个过程极其无聊，我们又没得到具体的开发任务，所以只能继续think think think</p>
+</li>
+<li><p>14号有个review, 这个review比较关键，首先是知道了mentor对你的要求，其次是了解了开发主要的任务。完事之后得到一个反馈大概是应该开发些什么。基础的功能根本每个人都有，所以真没什么用。直接面向演示编程一个核心功能即可。</p>
+</li>
+<li><p>15号，吐槽一下网络比较慢，所以基本上下不了node dependency包，只能刷刷微博，继续 refine一下文档。晚上回到宾馆开始着手写代码，基本上是怎么好看怎么来，怎么快怎么写。</p>
+</li>
+<li><p>16号是final demonstration 我选了最后一个，一早睡了个懒觉再到会议中心。面试过程是40分钟，大概是想介绍什么就说什么。我说了软件的比较创新的地方以及为什么需要这样来。针对面试官提出的问题也做了一些反馈。这里我的一个条目被反驳了，我想写一个酒店数据API让第三方销售来接入，但事实应该是酒店去求第三方销售平台来接入，所以这个主次关系有些不对。但还好有惊无险的40分钟很快过去。 晚上说是有一个PARTY，其实就是一顿聚餐，有几个学长学姐一起陪着聊天。所以基本上也没有什么特别的地方。</p>
+</li>
+<li><p>17号去广州城里逛了一圈，由于每个人等面试的时间都是不一样的，等待比较辛苦…想着挂了也无所谓，反正来玩一圈~ 最后在下午三点多接到电话说过了，最后有一个HR面试~ 基本上这里只要没有人品问题都可以过。</p>
+</li>
+<li><p>18号上午11点半愉快地进行了HR面试，和TOM聊天甚欢，并成功拿到一个<code>录用通知书</code></p>
+</li>
+</ul>
+<p>实习过程中每天有200块的transportation fee领着还是蛮愉快的，毕竟也没干什么事情。另外酒店属于比较高级的，非常舒服。</p>
+<h3 id="实习的小结">实习的小结</h3><p>整个过程比较长，尤其是写文档的时间太长了。 据说最后的录用完全看面试官的心情，所以基本上也算是运气比较重要的。最后HR送了我们一句话，我觉得非常有意思，虽然他用一长串英语翻译之后我们根本不知道是什么，翻译成中文是“塞翁失马，焉知非福”，我想对于这次实习，不仅收获了一个offer，更多的是认识的这么多有趣的朋友。大家都是从各处来的，有西安、杭州、南京、香港，还有一个香港来的韩国妹子，说的一口好中文，虽然多数时间她是用英语在讲。另外还有WAP的work staff~</p>
+<p>这次经历收获是蛮多的，最近要开题了，还不知道做什么呢 0.0 </p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Works_Appliations">Works Appliations</h2><h3 id="面试经过">面试经过</h3><p>关于这家公司的印象大致也就是给的工资比较多，比一般应届毕业生高出不少，其他就没有多少了。</p>
+<p>后面通宣讲会知道是做ERP]]>
+    </summary>
+    
+      <category term="Internship" scheme="http://kymtwyf.github.io/tags/Internship/"/>
+    
+      <category term="Works Applications" scheme="http://kymtwyf.github.io/tags/Works-Applications/"/>
+    
+      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[基于token验证的web应用jAccount登录]]></title>
