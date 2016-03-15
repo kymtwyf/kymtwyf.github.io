@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kymtwyf.github.io/"/>
-  <updated>2015-12-23T08:24:27.000Z</updated>
+  <updated>2016-03-15T05:51:08.000Z</updated>
   <id>http://kymtwyf.github.io/</id>
   
   <author>
@@ -13,6 +13,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[mysql event scheduler 用法]]></title>
+    <link href="http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/"/>
+    <id>http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/</id>
+    <published>2016-03-11T07:10:50.000Z</published>
+    <updated>2016-03-15T05:51:08.000Z</updated>
+    <content type="html"><![CDATA[<p>想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西<a href="https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html" target="_blank" rel="external">event scheduler</a></p>
+<p>整理了一下 Event Scheduler 的主要用法 </p>
+<h6 id="打开">打开</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> event_scheduler = <span class="keyword">ON</span>;</span></span><br></pre></td></tr></table></figure>
+<h6 id="关闭">关闭</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> event_scheduler = <span class="keyword">OFF</span>;</span></span><br></pre></td></tr></table></figure>
+<h6 id="创建一个_Event">创建一个 Event</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span></span><br><span class="line">    [DEFINER = &#123; <span class="keyword">user</span> | <span class="keyword">CURRENT_USER</span> &#125;]</span><br><span class="line">    <span class="keyword">EVENT</span></span><br><span class="line">    [<span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>]</span><br><span class="line">    event_name</span><br><span class="line">    <span class="keyword">ON</span> SCHEDULE schedule</span><br><span class="line">    [<span class="keyword">ON</span> COMPLETION [<span class="keyword">NOT</span>] <span class="keyword">PRESERVE</span>]</span><br><span class="line">    [<span class="keyword">ENABLE</span> | <span class="keyword">DISABLE</span> | <span class="keyword">DISABLE</span> <span class="keyword">ON</span> <span class="keyword">SLAVE</span>]</span><br><span class="line">    [<span class="keyword">COMMENT</span> <span class="string">'comment'</span>]</span><br><span class="line">    <span class="keyword">DO</span> event_body;</span></span><br><span class="line"></span><br><span class="line">schedule:</span><br><span class="line">    AT timestamp [+ INTERVAL interval] ...</span><br><span class="line">  | EVERY interval</span><br><span class="line">    [STARTS timestamp [+ INTERVAL interval] ...]</span><br><span class="line">    [ENDS timestamp [+ INTERVAL interval] ...]</span><br><span class="line"></span><br><span class="line">interval:</span><br><span class="line">    quantity &#123;YEAR | QUARTER | MONTH | DAY | HOUR | MINUTE |</span><br><span class="line">              WEEK | SECOND | YEAR_MONTH | DAY_HOUR | DAY_MINUTE |</span><br><span class="line">              DAY_SECOND | HOUR_MINUTE | HOUR_SECOND | MINUTE_SECOND&#125;</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<ol>
+<li><p>每一分钟往数据库里插入一条数据(仅id 和 time 字段)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">EVENT</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span></span><br><span class="line">  insert_every_minute</span><br><span class="line"><span class="keyword">ON</span> SCHEDULE</span><br><span class="line">  EVERY <span class="number">1</span> <span class="keyword">MINUTE</span></span><br><span class="line"><span class="keyword">DO</span></span><br><span class="line">  <span class="keyword">insert</span> <span class="keyword">into</span> time_interval (<span class="keyword">time</span>) <span class="keyword">values</span>(<span class="keyword">CURRENT_TIMESTAMP</span>);</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一周后开始每天凌晨1点插入一条数据,两周后结束执行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">EVENT</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span></span><br><span class="line">  insert_every_1am_after_one_week</span><br><span class="line"><span class="keyword">ON</span> SCHEDULE</span><br><span class="line">  EVERY <span class="number">1</span> <span class="keyword">DAY</span> </span><br><span class="line">  STARTS (<span class="keyword">TIMESTAMP</span>(<span class="keyword">CURRENT_DATE</span>) + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">WEEK</span> + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">HOUR</span>)</span><br><span class="line">  ENDS (<span class="keyword">TIMESTAMP</span>(<span class="keyword">CURRENT_DATE</span>) + <span class="built_in">INTERVAL</span> <span class="number">2</span> <span class="keyword">WEEK</span> + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">HOUR</span>)</span><br><span class="line"><span class="keyword">DO</span></span><br><span class="line">  <span class="keyword">insert</span> <span class="keyword">into</span> time_interval(<span class="keyword">time</span>) <span class="keyword">values</span>(<span class="keyword">CURRENT_TIMESTAMP</span>);</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="查看现在所有的_Events">查看现在所有的 Events</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">events</span>;</span></span><br></pre></td></tr></table></figure>
+<p>以下是我测试的 event<br><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020346/1.pic_vymgmv.jpg" alt="所有 event"></p>
+<p><em>图中Status 为 disable 是我手动停止的</em></p>
+<h6 id="停止一个_Event，修改它">停止一个 Event，修改它</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">ALTER</span></span><br><span class="line">    [DEFINER = &#123; <span class="keyword">user</span> | <span class="keyword">CURRENT_USER</span> &#125;]</span><br><span class="line">    <span class="keyword">EVENT</span> event_name</span><br><span class="line">    [<span class="keyword">ON</span> SCHEDULE schedule]</span><br><span class="line">    [<span class="keyword">ON</span> COMPLETION [<span class="keyword">NOT</span>] <span class="keyword">PRESERVE</span>]</span><br><span class="line">    [RENAME <span class="keyword">TO</span> new_event_name]</span><br><span class="line">    [<span class="keyword">ENABLE</span> | <span class="keyword">DISABLE</span> | <span class="keyword">DISABLE</span> <span class="keyword">ON</span> <span class="keyword">SLAVE</span>]</span><br><span class="line">    [<span class="keyword">COMMENT</span> <span class="string">'comment'</span>]</span><br><span class="line">    [<span class="keyword">DO</span> event_body]</span></span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<ol>
+<li>停止刚才的 insert_every_second<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">EVENT</span> insert_every_second <span class="keyword">DISABLE</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="查看一个_event_创建的语法">查看一个 event 创建的语法</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">EVENT</span> event_name;</span></span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<ol>
+<li>查看刚才的insert_every_1am_after_one_week<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">event</span> insert_every_1am_after_one_week</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020757/2.pic_ml0ssr.jpg" alt="show create event"></p>
+<h6 id="删除一个_event">删除一个 event</h6><p>上次遇到一个因为 definer 不对的 event 报错：</p>
+<blockquote>
+<p>[ERROR] Event Scheduler: [USER@%][MY_DB.recalcSortWeight] The user specified as a definer (‘USER’@’%’) does not exist 2016-03-11 00:04:34<br>查看了一下，这个 event 并不是我需要的，也不知道谁写的，所以删了算了<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DROP</span> <span class="keyword">EVENT</span> [<span class="keyword">IF</span> <span class="keyword">EXISTS</span>] event_name</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西<a href="https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html" target="_blank" rel="exter]]>
+    </summary>
+    
+      <category term="event scheduler" scheme="http://kymtwyf.github.io/tags/event-scheduler/"/>
+    
+      <category term="mysql" scheme="http://kymtwyf.github.io/tags/mysql/"/>
+    
+      <category term="show create event" scheme="http://kymtwyf.github.io/tags/show-create-event/"/>
+    
+      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[spring parameter validation in json]]></title>
+    <link href="http://kymtwyf.github.io/2016/01/19/spring-parameter-validation/"/>
+    <id>http://kymtwyf.github.io/2016/01/19/spring-parameter-validation/</id>
+    <published>2016-01-19T10:46:48.000Z</published>
+    <updated>2016-03-11T07:13:18.000Z</updated>
+    <content type="html"><![CDATA[<p>参考先摆在前面<a href="http://fruzenshtein.com/spring-mvc-validator-initbinder/" target="_blank" rel="external">Reference</a></p>
+<p>这两天写代码遇到一个问题：如果是直接通过 <code>@RequestBody</code>来创建一个 Java 对象的方式，虽然可以直接 map 一个 json 对象到 Java 对象。为了对该对象的参数做一些验证，但又不想自己来组装这个对象写成很长的一段参数列表 ：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@RequestMapping</span>(value=<span class="string">"/yourapi"</span>, method=RequestMethod.POST)</span><br><span class="line">public ModelAndView <span class="function">createNewShop</span>(<span class="variable">@RequestParam</span> Value1 value1,</span><br><span class="line">                                <span class="variable">@RequestParam</span> Value2 value2</span><br><span class="line">                                <span class="comment">//, ...长长的一串</span></span><br><span class="line">                                ) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这时实现一些必要参数的验证，就可以用 Validator 来进行验证，步骤分以下几个</p>
+<ol>
+<li>创建一个Validator 并实现其 validate 方法：<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeValidator</span> <span class="keyword">implements</span> <span class="title">Validator</span> </span>&#123;</span><br><span class="line">     </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Class&lt;?&gt; clazz)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Some.class.isAssignableFrom(clazz);</span><br><span class="line">        <span class="comment">//或写成   return Some.class.equals(clazz);</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">validate</span><span class="params">(Object <span class="keyword">target</span>, Errors errors)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//这里对 target 进行验证</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在 validate 方法中，target 即json 转换成的 POJO，可强转为该对象 <code>Some some = (Some)target;</code>，可对其进行空判断、范围检查等验证：</p>
+<ul>
+<li>ValidationUtils.rejectIfEmpty(errors, “name”, “message.name_cant_be_empty”);</li>
+<li><code>some.getSomeValue();</code> 做一些验证 然后 <code>errors.rejectValue(&quot;someValue&quot;,&quot;reason&quot;);</code></li>
+</ul>
+<ol>
+<li><p>在 controller 中加入 Validator</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> SomeValidator someValidator;</span><br><span class="line"> </span><br><span class="line"><span class="annotation">@InitBinder</span></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">initBinder</span><span class="params">(WebDataBinder binder)</span> </span>&#123;</span><br><span class="line">    binder.setValidator(someValidator);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后在参数上添加@Valid接口</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@RequestMapping</span>(value=<span class="string">"/yourapi"</span>, method=RequestMethod.POST)</span><br><span class="line">public ModelAndView <span class="function">createNewShop</span>(<span class="variable">@Valid</span> Some some) &#123;</span><br><span class="line">    <span class="comment">//这里拿到的 some 对象就是已经是验证之后的了  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>参考先摆在前面<a href="http://fruzenshtein.com/spring-mvc-validator-initbinder/" target="_blank" rel="external">Reference</a></p>
+<p>这两天写代码遇到一个问]]>
+    </summary>
+    
+      <category term="Spring Validator" scheme="http://kymtwyf.github.io/tags/Spring-Validator/"/>
+    
+      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Filco 圣手二代87键 Mac 键对应]]></title>
+    <link href="http://kymtwyf.github.io/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/"/>
+    <id>http://kymtwyf.github.io/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/</id>
+    <published>2015-12-30T03:01:53.000Z</published>
+    <updated>2016-01-28T07:18:59.000Z</updated>
+    <content type="html"><![CDATA[<p>Filco <a href="https://detail.tmall.com/item.htm?id=19332346616&amp;spm=a1z0k.7385961.1997985097.d4918997.6cQPe0&amp;_u=s41e7ioec03&amp;sku_properties=5919063:6536025" target="_blank" rel="external">这款键盘</a>我已经盯上好久了，室友有一块 Filco 蓝牙 mini 的感觉太小，手比较大的我不是很适合，而且听说蓝牙经常会有连接问题，逐决定买 87键的。最近听说朋友马上要回上海了，所以托朋友从<a href="http://www.amazon.co.jp/FILCO-US%E3%82%A2%E3%82%B9%E3%82%AD%E3%83%BC%E9%85%8D%E5%88%9787%E3%82%AD%E3%83%BC%E3%83%BB%E5%89%8D%E9%9D%A2%E5%8D%B0%E5%88%B7-%E7%8B%ACCherryMX%E9%BB%92%E8%BB%B8%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81%E3%83%A1%E3%82%AB%E3%83%8B%E3%82%AB%E3%83%AB%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89-FKBN87ML-EFB2/dp/B0050ODQEI/ref=sr_1_1?ie=UTF8&amp;qid=1453962563&amp;sr=8-1&amp;keywords=FKBN87ML%2FEFB2" target="_blank" rel="external">日亚</a>上面买了一块(型号号为<code>FKBN87ML/EFB2</code>)。 比较中意侧刻的键盘，87键大小也正好合适，还有<a href="http://www.amazon.co.jp/Majestouch-2-Tenkeyless-Linear-Keyboard-FKBN87ML/dp/B01AN0JUKM/ref=sr_1_2?ie=UTF8&amp;qid=1453962515&amp;sr=8-2&amp;keywords=FKBN87ML%2FEB2" target="_blank" rel="external">正刻的</a>(型号为<code>FKBN87ML/EB2</code>)。11940 JPY 折合约 650 RMB ，比 X 宝便宜了200块。</p>
+<h3 id="Map_command_键">Map command 键</h3><p>Mac 和 win的键盘不一样，但使用 Mac 一年时间感觉 Mac 键盘部局还是比较好用的。为了按键匹配把 Alt 和 Win 键换一下，可以直接在 Mac的设置中设置：</p>
+<p>Setting -&gt; Keyboard -&gt; Modifier Keys… -&gt; Select Keyboard (choose USB Keyboard) -&gt; switch Option Key and Command Key </p>
+<div class="figure fig-25"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963918/3.pic_hqmqaz.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963918/3.pic_hqmqaz.jpg" width="" height="" alt=""></a></div> <div class="figure fig-25"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963916/4.pic_dn5dmd.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963916/4.pic_dn5dmd.jpg" width="" height="" alt=""></a></div> <div class="figure fig-25"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/v1453963917/5.pic_yejata.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1453963917/5.pic_yejata.jpg" width="" height="" alt=""></a></div> <div class="figure fig-25"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963917/6.pic_vhtsmm.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963917/6.pic_vhtsmm.jpg" width="" height="" alt=""></a></div>
+<p>这样设置完之后 Win键就和 Command 对应了，<code>Command + C</code>, <code>Command + V</code> 用起来习惯多了。</p>
+<h3 id="设置多媒体键">设置多媒体键</h3><p>经常听音乐，所以常需要调节音量，但 F1-F12已经被我改为普通功能了，所以不能直接改过来用作多媒体控制（我主要用来控制音量）在 zhihu 上找到有人推荐<a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="external">Karabiner</a> 下载了一个来玩，感觉还是蛮好用的。</p>
+<p>这里我将87键键盘的右上角三个键 Ps/SR, ScLk, Pa/Br 键对应到音量静音、减、增三个键，这个功能有预置，可以直接搜索到并 enable 即可：</p>
+<div class="figure fig-100"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/v1453965115/10.pic_hd_fksqoi.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1453965115/10.pic_hd_fksqoi.jpg" width="" height="" alt=""></a></div>
+<p>另外也可以自定义按键对应：</p>
+<div class="figure fig-100"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_800/v1453964892/8.pic_hd_fcosmz.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_800/v1453964892/8.pic_hd_fcosmz.jpg" width="" height="" alt=""></a></div>
+<p>打开 <code>private.xml</code> 输入需要定制的内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这里我把 Insert 键换成 Launchpad 键--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">root</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">name</span>&gt;</span>Insert Key Launchpad<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">identifier</span>&gt;</span>private_pc_insert_to_launchpad<span class="tag">&lt;/<span class="title">identifier</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">autogen</span>&gt;</span>__KeyToKey__ KeyCode::PC_INSERT,KeyCode::LAUNCHPAD<span class="tag">&lt;/<span class="title">autogen</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>保存后 reload 即可。</p>
+<p>更多例子参考<a href="https://github.com/tekezo/Karabiner/tree/master/src/core/server/Resources/include/checkbox" target="_blank" rel="external">官方样例中的代码</a></p>
+<h3 id="有了高效的工具就剩下好好工作了~">有了高效的工具就剩下好好工作了~</h3>]]></content>
+    <summary type="html">
+    <![CDATA[<p>Filco <a href="https://detail.tmall.com/item.htm?id=19332346616&amp;spm=a1z0k.7385961.1997985097.d4918997.6cQPe0&amp;_u=s41e7ioec03&amp;s]]>
+    </summary>
+    
+      <category term="Filco" scheme="http://kymtwyf.github.io/tags/Filco/"/>
+    
+      <category term="Mac" scheme="http://kymtwyf.github.io/tags/Mac/"/>
+    
+      <category term="Tools" scheme="http://kymtwyf.github.io/categories/Tools/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Works Applications 实习经历]]></title>
@@ -211,7 +337,7 @@
     <link href="http://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/"/>
     <id>http://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/</id>
     <published>2015-10-11T16:52:28.000Z</published>
-    <updated>2015-11-10T16:11:01.000Z</updated>
+    <updated>2016-03-11T07:13:38.000Z</updated>
     <content type="html"><![CDATA[<h1 id="步骤">步骤</h1><ol>
 <li>用Sequel Pro导出<a href="https://en.wikipedia.org/wiki/DOT_(graph_description_language" target="_blank" rel="external">Dot</a>)文件<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File<span class="subst">-&gt; </span>Export<span class="attribute">...</span> <span class="subst">-&gt; </span>Dot</span><br></pre></td></tr></table></figure>
 </li>
@@ -236,7 +362,7 @@
     
       <category term="table schema" scheme="http://kymtwyf.github.io/tags/table-schema/"/>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Tools" scheme="http://kymtwyf.github.io/categories/Tools/"/>
     
   </entry>
   
@@ -245,7 +371,7 @@
     <link href="http://kymtwyf.github.io/2015/10/12/brew-priviledge/"/>
     <id>http://kymtwyf.github.io/2015/10/12/brew-priviledge/</id>
     <published>2015-10-11T16:43:49.000Z</published>
-    <updated>2015-10-11T16:50:59.000Z</updated>
+    <updated>2016-03-11T07:13:45.000Z</updated>
     <content type="html"><![CDATA[<p>用brew安装包的时候出现<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error: Could not symlink share/<span class="keyword">man</span>/man7/graphviz.7 </span><br><span class="line">/usr/local/share/<span class="keyword">man</span>/man7 <span class="keyword">is</span> not writable.</span><br><span class="line">错误。</span><br></pre></td></tr></table></figure></p>
 <p>原因是brew link的时候没有root权限，但又不建议用sudo。所以简单粗暴的方法是将/usr/local的owner改为当前用户</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> -R <span class="string">`whoami`</span> /usr/<span class="keyword">local</span></span><br></pre></td></tr></table></figure>
@@ -256,7 +382,7 @@
     <![CDATA[<p>用brew安装包的时候出现<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2]]>
     </summary>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
     
   </entry>
   

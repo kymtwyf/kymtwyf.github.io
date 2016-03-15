@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Wu Yongfeng - Blog">
+    <title>mysql event scheduler 用法 - Wu Yongfeng - Blog</title>
+    <meta name="author" content="Wu Yongfeng">
+    
+        <link rel="icon" href="/assets/images/favicon.ico">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西event scheduler
+整理了一下 Event Scheduler 的主要用法 
+打开1SET GLOBAL event_scheduler = ON;
+关闭1SET GLOBAL event_scheduler = OFF;
+创建一个 Event12345678910111213141516171819202">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="mysql event scheduler 用法">
+<meta property="og:url" content="http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/index.html">
+<meta property="og:site_name" content="Wu Yongfeng - Blog">
+<meta property="og:description" content="想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西event scheduler
+整理了一下 Event Scheduler 的主要用法 
+打开1SET GLOBAL event_scheduler = ON;
+关闭1SET GLOBAL event_scheduler = OFF;
+创建一个 Event12345678910111213141516171819202">
+<meta property="og:image" content="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020346/1.pic_vymgmv.jpg">
+<meta property="og:image" content="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020757/2.pic_ml0ssr.jpg">
+<meta property="og:updated_time" content="2016-03-15T05:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql event scheduler 用法">
+<meta name="twitter:description" content="想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西event scheduler
+整理了一下 Event Scheduler 的主要用法 
+打开1SET GLOBAL event_scheduler = ON;
+关闭1SET GLOBAL event_scheduler = OFF;
+创建一个 Event12345678910111213141516171819202">
+    
+    
+    
+    
+        <meta property="og:image" content="/2016/03/11/mysql-event-scheduler-usage/http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png" />
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c65c4dfed20ce4a1fb28332bd37ddac3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Wu Yongfeng - Blog</a>
+    </h1>
+    
+</header>
+            <nav id="sidebar" data-behavior="3">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/kymtwyf" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://stackoverflow.com/users/2428562/yongfeng" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+                    <span class="sidebar-button-desc">Stack Overflow</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://weibo.com/kymtwyf" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-weibo"></i>
+                    <span class="sidebar-button-desc">Weibo</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://www.linkedin.com/in/wuyongfeng" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">Linked In</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:kymtwyf@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-center">
+    
+        <h1 class="post-title" itemprop="headline">
+            mysql event scheduler 用法
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Fri Mar 11 2016 15:10:50 GMT+0800">
+	
+		    Mar 11, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Tech/">Tech</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西<a href="https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html" target="_blank" rel="external">event scheduler</a></p>
+<p>整理了一下 Event Scheduler 的主要用法 </p>
+<h6 id="打开">打开</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> event_scheduler = <span class="keyword">ON</span>;</span></span><br></pre></td></tr></table></figure>
+<h6 id="关闭">关闭</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> event_scheduler = <span class="keyword">OFF</span>;</span></span><br></pre></td></tr></table></figure>
+<h6 id="创建一个_Event">创建一个 Event</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span></span><br><span class="line">    [DEFINER = &#123; <span class="keyword">user</span> | <span class="keyword">CURRENT_USER</span> &#125;]</span><br><span class="line">    <span class="keyword">EVENT</span></span><br><span class="line">    [<span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>]</span><br><span class="line">    event_name</span><br><span class="line">    <span class="keyword">ON</span> SCHEDULE schedule</span><br><span class="line">    [<span class="keyword">ON</span> COMPLETION [<span class="keyword">NOT</span>] <span class="keyword">PRESERVE</span>]</span><br><span class="line">    [<span class="keyword">ENABLE</span> | <span class="keyword">DISABLE</span> | <span class="keyword">DISABLE</span> <span class="keyword">ON</span> <span class="keyword">SLAVE</span>]</span><br><span class="line">    [<span class="keyword">COMMENT</span> <span class="string">'comment'</span>]</span><br><span class="line">    <span class="keyword">DO</span> event_body;</span></span><br><span class="line"></span><br><span class="line">schedule:</span><br><span class="line">    AT timestamp [+ INTERVAL interval] ...</span><br><span class="line">  | EVERY interval</span><br><span class="line">    [STARTS timestamp [+ INTERVAL interval] ...]</span><br><span class="line">    [ENDS timestamp [+ INTERVAL interval] ...]</span><br><span class="line"></span><br><span class="line">interval:</span><br><span class="line">    quantity &#123;YEAR | QUARTER | MONTH | DAY | HOUR | MINUTE |</span><br><span class="line">              WEEK | SECOND | YEAR_MONTH | DAY_HOUR | DAY_MINUTE |</span><br><span class="line">              DAY_SECOND | HOUR_MINUTE | HOUR_SECOND | MINUTE_SECOND&#125;</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<ol>
+<li><p>每一分钟往数据库里插入一条数据(仅id 和 time 字段)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">EVENT</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span></span><br><span class="line">  insert_every_minute</span><br><span class="line"><span class="keyword">ON</span> SCHEDULE</span><br><span class="line">  EVERY <span class="number">1</span> <span class="keyword">MINUTE</span></span><br><span class="line"><span class="keyword">DO</span></span><br><span class="line">  <span class="keyword">insert</span> <span class="keyword">into</span> time_interval (<span class="keyword">time</span>) <span class="keyword">values</span>(<span class="keyword">CURRENT_TIMESTAMP</span>);</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一周后开始每天凌晨1点插入一条数据,两周后结束执行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">EVENT</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span></span><br><span class="line">  insert_every_1am_after_one_week</span><br><span class="line"><span class="keyword">ON</span> SCHEDULE</span><br><span class="line">  EVERY <span class="number">1</span> <span class="keyword">DAY</span> </span><br><span class="line">  STARTS (<span class="keyword">TIMESTAMP</span>(<span class="keyword">CURRENT_DATE</span>) + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">WEEK</span> + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">HOUR</span>)</span><br><span class="line">  ENDS (<span class="keyword">TIMESTAMP</span>(<span class="keyword">CURRENT_DATE</span>) + <span class="built_in">INTERVAL</span> <span class="number">2</span> <span class="keyword">WEEK</span> + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">HOUR</span>)</span><br><span class="line"><span class="keyword">DO</span></span><br><span class="line">  <span class="keyword">insert</span> <span class="keyword">into</span> time_interval(<span class="keyword">time</span>) <span class="keyword">values</span>(<span class="keyword">CURRENT_TIMESTAMP</span>);</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="查看现在所有的_Events">查看现在所有的 Events</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">events</span>;</span></span><br></pre></td></tr></table></figure>
+<p>以下是我测试的 event<br><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020346/1.pic_vymgmv.jpg" alt="所有 event"></p>
+<p><em>图中Status 为 disable 是我手动停止的</em></p>
+<h6 id="停止一个_Event，修改它">停止一个 Event，修改它</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">ALTER</span></span><br><span class="line">    [DEFINER = &#123; <span class="keyword">user</span> | <span class="keyword">CURRENT_USER</span> &#125;]</span><br><span class="line">    <span class="keyword">EVENT</span> event_name</span><br><span class="line">    [<span class="keyword">ON</span> SCHEDULE schedule]</span><br><span class="line">    [<span class="keyword">ON</span> COMPLETION [<span class="keyword">NOT</span>] <span class="keyword">PRESERVE</span>]</span><br><span class="line">    [RENAME <span class="keyword">TO</span> new_event_name]</span><br><span class="line">    [<span class="keyword">ENABLE</span> | <span class="keyword">DISABLE</span> | <span class="keyword">DISABLE</span> <span class="keyword">ON</span> <span class="keyword">SLAVE</span>]</span><br><span class="line">    [<span class="keyword">COMMENT</span> <span class="string">'comment'</span>]</span><br><span class="line">    [<span class="keyword">DO</span> event_body]</span></span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<ol>
+<li>停止刚才的 insert_every_second<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">EVENT</span> insert_every_second <span class="keyword">DISABLE</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="查看一个_event_创建的语法">查看一个 event 创建的语法</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">EVENT</span> event_name;</span></span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<ol>
+<li>查看刚才的insert_every_1am_after_one_week<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">event</span> insert_every_1am_after_one_week</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020757/2.pic_ml0ssr.jpg" alt="show create event"></p>
+<h6 id="删除一个_event">删除一个 event</h6><p>上次遇到一个因为 definer 不对的 event 报错：</p>
+<blockquote>
+<p>[ERROR] Event Scheduler: [USER@%][MY_DB.recalcSortWeight] The user specified as a definer (‘USER’@’%’) does not exist 2016-03-11 00:04:34<br>查看了一下，这个 event 并不是我需要的，也不知道谁写的，所以删了算了<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DROP</span> <span class="keyword">EVENT</span> [<span class="keyword">IF</span> <span class="keyword">EXISTS</span>] event_name</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/event-scheduler/">event scheduler</a> <a class="tag tag--primary tag--small t-link" href="/tags/mysql/">mysql</a> <a class="tag tag--primary tag--small t-link" href="/tags/show-create-event/">show create event</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/01/19/spring-parameter-validation/" data-tooltip="spring parameter validation in json">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/&amp;title=[Wu Yongfeng&#39;s Blog] mysql event scheduler 用法&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Wu Yongfeng. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/01/19/spring-parameter-validation/" data-tooltip="spring parameter validation in json">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/&amp;title=[Wu Yongfeng&#39;s Blog] mysql event scheduler 用法&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/&amp;title=[Wu Yongfeng&#39;s Blog] mysql event scheduler 用法&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png">
+                <i class="fa fa-weibo"></i><span class="">Share on Weibo</span>
+            </a>
+        </li>        
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Wu Yongfeng</h4>
+        
+            <h5 id="about-card-bio"><p>不会写代码</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Student</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Shanghai
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/Wallpaper.jpeg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'wuyongfeng';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+
+</html>
