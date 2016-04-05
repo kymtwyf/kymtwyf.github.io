@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Wu Yongfeng - Blog">
+    <title>替换图片中的二维码 - Wu Yongfeng - Blog</title>
+    <meta name="author" content="Wu Yongfeng">
+    
+        <link rel="icon" href="/assets/images/favicon.ico">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。找到 zbar 这个好用的库就搞定了大部分了，下面直接贴代码
+
+效果如下：">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="替换图片中的二维码">
+<meta property="og:url" content="http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/index.html">
+<meta property="og:site_name" content="Wu Yongfeng - Blog">
+<meta property="og:description" content="遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。找到 zbar 这个好用的库就搞定了大部分了，下面直接贴代码
+
+效果如下：">
+<meta property="og:image" content="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866549/from_hw4ei4.png">
+<meta property="og:image" content="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png">
+<meta property="og:updated_time" content="2016-04-05T14:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="替换图片中的二维码">
+<meta name="twitter:description" content="遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。找到 zbar 这个好用的库就搞定了大部分了，下面直接贴代码
+
+效果如下：">
+    
+    
+    
+    
+        <meta property="og:image" content="/2016/04/05/python-replace-qr-code-in-image/http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png" />
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c65c4dfed20ce4a1fb28332bd37ddac3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Wu Yongfeng - Blog</a>
+    </h1>
+    
+</header>
+            <nav id="sidebar" data-behavior="3">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/kymtwyf" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://stackoverflow.com/users/2428562/yongfeng" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+                    <span class="sidebar-button-desc">Stack Overflow</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://weibo.com/kymtwyf" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-weibo"></i>
+                    <span class="sidebar-button-desc">Weibo</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://www.linkedin.com/in/wuyongfeng" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">Linked In</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:kymtwyf@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-center">
+    
+        <h1 class="post-title" itemprop="headline">
+            替换图片中的二维码
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Tue Apr 05 2016 22:26:05 GMT+0800">
+	
+		    Apr 05, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Tech/">Tech</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。<br>找到 <a href="https://pypi.python.org/pypi/zbar" target="_blank" rel="external">zbar</a> 这个好用的库就搞定了大部分了，下面直接贴代码</p>
+<script src="//gist.github.com/4b194ae91f43aff4883f82b8bebd9419.js?file=replaceqr.py"></script>
+<p>效果如下：</p>
+<div class="figure nocaption fig-50"><a class="fancybox" href="" title="origin"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866549/from_hw4ei4.png" width="" height="" alt="origin"></a></div>
+<div class="figure nocaption fig-50"><a class="fancybox" href="" title="after"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png" width="" height="" alt="after"></a></div>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/python/">python</a> <a class="tag tag--primary tag--small t-link" href="/tags/qrtools/">qrtools</a> <a class="tag tag--primary tag--small t-link" href="/tags/zbar/">zbar</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/03/11/mysql-event-scheduler-usage/" data-tooltip="mysql event scheduler 用法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/&amp;title=[Wu Yongfeng&#39;s Blog] 替换图片中的二维码&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Wu Yongfeng. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/03/11/mysql-event-scheduler-usage/" data-tooltip="mysql event scheduler 用法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/&amp;title=[Wu Yongfeng&#39;s Blog] 替换图片中的二维码&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/&amp;title=[Wu Yongfeng&#39;s Blog] 替换图片中的二维码&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png">
+                <i class="fa fa-weibo"></i><span class="">Share on Weibo</span>
+            </a>
+        </li>        
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Wu Yongfeng</h4>
+        
+            <h5 id="about-card-bio"><p>不会写代码</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Student</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Shanghai
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/Wallpaper.jpeg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'wuyongfeng';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+
+</html>

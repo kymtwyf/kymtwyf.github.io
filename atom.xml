@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kymtwyf.github.io/"/>
-  <updated>2016-03-15T05:51:08.000Z</updated>
+  <updated>2016-04-05T14:48:03.000Z</updated>
   <id>http://kymtwyf.github.io/</id>
   
   <author>
@@ -15,11 +15,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[替换图片中的二维码]]></title>
+    <link href="http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/"/>
+    <id>http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/</id>
+    <published>2016-04-05T14:26:05.000Z</published>
+    <updated>2016-04-05T14:48:03.000Z</updated>
+    <content type="html"><![CDATA[<p>遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。<br>找到 <a href="https://pypi.python.org/pypi/zbar" target="_blank" rel="external">zbar</a> 这个好用的库就搞定了大部分了，下面直接贴代码</p>
+<script src="//gist.github.com/4b194ae91f43aff4883f82b8bebd9419.js?file=replaceqr.py"></script>
+<p>效果如下：</p>
+<div class="figure nocaption fig-50"><a class="fancybox" href="" title="origin"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866549/from_hw4ei4.png" width="" height="" alt="origin"></a></div>
+<div class="figure nocaption fig-50"><a class="fancybox" href="" title="after"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png" width="" height="" alt="after"></a></div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。<br>找到 <a href="https://pypi.python.org/pypi/zbar" target="_blank" rel="external">zbar</a>]]>
+    </summary>
+    
+      <category term="python" scheme="http://kymtwyf.github.io/tags/python/"/>
+    
+      <category term="qrtools" scheme="http://kymtwyf.github.io/tags/qrtools/"/>
+    
+      <category term="zbar" scheme="http://kymtwyf.github.io/tags/zbar/"/>
+    
+      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[mysql event scheduler 用法]]></title>
     <link href="http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/"/>
     <id>http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/</id>
     <published>2016-03-11T07:10:50.000Z</published>
-    <updated>2016-03-15T05:51:08.000Z</updated>
+    <updated>2016-03-15T07:56:27.000Z</updated>
     <content type="html"><![CDATA[<p>想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西<a href="https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html" target="_blank" rel="external">event scheduler</a></p>
 <p>整理了一下 Event Scheduler 的主要用法 </p>
 <h6 id="打开">打开</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> event_scheduler = <span class="keyword">ON</span>;</span></span><br></pre></td></tr></table></figure>
