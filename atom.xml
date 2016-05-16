@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kymtwyf.github.io/"/>
-  <updated>2016-04-05T14:48:03.000Z</updated>
+  <updated>2016-05-16T13:42:58.000Z</updated>
   <id>http://kymtwyf.github.io/</id>
   
   <author>
@@ -15,16 +15,81 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[近期活动小结]]></title>
+    <link href="http://kymtwyf.github.io/2016/05/16/recent-activities/"/>
+    <id>http://kymtwyf.github.io/2016/05/16/recent-activities/</id>
+    <published>2016-05-16T13:17:43.000Z</published>
+    <updated>2016-05-16T13:42:58.000Z</updated>
+    <content type="html"><![CDATA[<p>好久没更新了，最近在忙一些事情，主要是暑假实习面了几家，想着攒攒面试经验和实习经历。</p>
+<ol>
+<li>Ant FinaXXX</li>
+</ol>
+<p>内推的java工程师面试整个过程持续了得有两个月吧，陆续接到电话面试，共计五轮，最后一面HR.</p>
+<p>前四轮技术面试涉及到的内容比较杂，大致分为算法和项目经历两块，算法的话面了一些基础的，感觉口头回答没啥难度。然后是java相关的一些东西和项目经历，包括java多线程、我参加的Hackathon、<a href="http://sui.me" target="_blank" rel="external">随米</a> 的后台实现上的一些问题。</p>
+<p>整个过程下来就是感觉废话太多，像是在聊天而不是面试（可能面试就是聊天吧。。。）</p>
+<p>最后面完HR后过了好久收到几封邮件：</p>
+<p>XXXX实习生录用喜报, XXXX实习生手册等。。。过程还算顺利</p>
+<ol>
+<li>TenXXXX</li>
+</ol>
+<p>网申的，由于我只会java而不懂c++(学习过而日常项目等都没使用) 所以投了一个java相关的岗位：Android工程师，目标城市是上海。</p>
+<p>结果，我居然收到了北京office打来的面试电话。</p>
+<p>Android 面试我没准备多少（仗着我懂些Android的皮毛，我就敢投，我想想也觉得胆大）所以面试基础的内容比如ListView怎么自己重写等问题的时候我也没答上来。</p>
+<p>后面又被问到一道算法题，我现在已经回忆不起来了，是一道数据量很大的题目。。。</p>
+<p>结果可想而知，GG了。。</p>
+<ol>
+<li>MicroXXXX</li>
+</ol>
+<p>成功过了在线评测后感觉算法还是有待加强，所以期间刷了几题，也总结了一些面试题目，比如<a href="http://wuchong.me/blog/2014/03/25/interview-link-questions/" target="_blank" rel="external">链表相关的题目</a>（感谢这篇总结）</p>
+<p>on site 共有三轮，前两轮算是技术面，最后看表现决定是否有三面。</p>
+<p>技术面了k路链表合并、反转链表等问题，经过了上面的准备，我手写代码终于一遍过了！所以意外地进入了最后一轮面试。第三轮面试也比较顺利，算是聊一些项目和自己的思路，整个过程更像是在聊天。</p>
+<p>最后也收到了一封邮件：</p>
+<p>XXXX 赶紧加入我们吧</p>
+<p>面试经历的总结是：</p>
+<ol>
+<li>要刷题，至少要过在线评测一关</li>
+<li>追过代码质量，要细致写代码</li>
+<li>要沉下心来研究一些技术底层的内容，而不仅停留在应用层面。</li>
+</ol>
+<hr>
+<p>另外一件事情就是我在开题，做spark streaming在容器云上相关的内容，涉及内容比较多，既要了解流式计算相关框架，也要去看docker 和kubernetes相关内容。开题报告写得我很头疼。</p>
+<hr>
+<p>另外一件事情就是恭喜Bryan的项目拿到天使投资。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>好久没更新了，最近在忙一些事情，主要是暑假实习面了几家，想着攒攒面试经验和实习经历。</p>
+<ol>
+<li>Ant FinaXXX</li>
+</ol>
+<p>内推的java工程师面试整个过程持续了得有两个月吧，陆续接到电话面试，共计五轮，最后一面HR.</p>
+<p>]]>
+    </summary>
+    
+      <category term="activities" scheme="http://kymtwyf.github.io/tags/activities/"/>
+    
+      <category term="books" scheme="http://kymtwyf.github.io/tags/books/"/>
+    
+      <category term="interview" scheme="http://kymtwyf.github.io/tags/interview/"/>
+    
+      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[替换图片中的二维码]]></title>
     <link href="http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/"/>
     <id>http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/</id>
     <published>2016-04-05T14:26:05.000Z</published>
-    <updated>2016-04-05T14:48:03.000Z</updated>
+    <updated>2016-04-06T10:15:26.000Z</updated>
     <content type="html"><![CDATA[<p>遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。<br>找到 <a href="https://pypi.python.org/pypi/zbar" target="_blank" rel="external">zbar</a> 这个好用的库就搞定了大部分了，下面直接贴代码</p>
 <script src="//gist.github.com/4b194ae91f43aff4883f82b8bebd9419.js?file=replaceqr.py"></script>
 <p>效果如下：</p>
 <div class="figure nocaption fig-50"><a class="fancybox" href="" title="origin"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866549/from_hw4ei4.png" width="" height="" alt="origin"></a></div>
 <div class="figure nocaption fig-50"><a class="fancybox" href="" title="after"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png" width="" height="" alt="after"></a></div>
+<h3 id="References">References</h3><ol>
+<li><a href="https://automatetheboringstuff.com/chapter17/" target="_blank" rel="external">https://automatetheboringstuff.com/chapter17/</a></li>
+<li><a href="http://stackoverflow.com/q/23796025/2428562" target="_blank" rel="external">http://stackoverflow.com/q/23796025/2428562</a></li>
+</ol>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。<br>找到 <a href="https://pypi.python.org/pypi/zbar" target="_blank" rel="external">zbar</a>]]>
