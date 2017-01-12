@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kymtwyf.github.io/"/>
-  <updated>2017-01-12T14:09:34.000Z</updated>
+  <updated>2017-01-12T14:30:31.000Z</updated>
   <id>http://kymtwyf.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/"/>
     <id>http://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/</id>
     <published>2017-01-11T13:34:10.000Z</published>
-    <updated>2017-01-12T14:09:34.000Z</updated>
+    <updated>2017-01-12T14:30:31.000Z</updated>
     <content type="html"><![CDATA[<h2 id="什么是Apache_Nifi">什么是Apache Nifi</h2><p>Apache Nifi 是一个定义流数据处理作业的平台服务，它提供直观的界面供开发者进行业务逻辑定制，能够方便地使用原生组件（Processor）也可以自己开发组件来构建流式数据处理应用。</p>
 <p>在使用过Apache Nifi 进行一些简单业务逻辑处理之后发现它功能强大，且入手难度不是很高，因此这里解释一下我对它里面的一些内容的理解。有些是翻译<a href="https://nifi.apache.org" target="_blank" rel="external">官网</a>上的，有一些是我自己总结的内容。</p>
 <h2 id="Apache_Nifi_使用及简单实例">Apache Nifi 使用及简单实例</h2><p>首先，通过安装并以一个简单的实例来介绍一下Nifi的使用。</p>
