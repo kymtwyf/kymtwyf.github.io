@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kymtwyf.github.io/"/>
-  <updated>2016-05-16T13:42:58.000Z</updated>
+  <updated>2017-01-12T14:09:34.000Z</updated>
   <id>http://kymtwyf.github.io/</id>
   
   <author>
@@ -13,6 +13,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Apache Nifi 定义和开发流式数据处理应用]]></title>
+    <link href="http://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/"/>
+    <id>http://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/</id>
+    <published>2017-01-11T13:34:10.000Z</published>
+    <updated>2017-01-12T14:09:34.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="什么是Apache_Nifi">什么是Apache Nifi</h2><p>Apache Nifi 是一个定义流数据处理作业的平台服务，它提供直观的界面供开发者进行业务逻辑定制，能够方便地使用原生组件（Processor）也可以自己开发组件来构建流式数据处理应用。</p>
+<p>在使用过Apache Nifi 进行一些简单业务逻辑处理之后发现它功能强大，且入手难度不是很高，因此这里解释一下我对它里面的一些内容的理解。有些是翻译<a href="https://nifi.apache.org" target="_blank" rel="external">官网</a>上的，有一些是我自己总结的内容。</p>
+<h2 id="Apache_Nifi_使用及简单实例">Apache Nifi 使用及简单实例</h2><p>首先，通过安装并以一个简单的实例来介绍一下Nifi的使用。</p>
+<h4 id="安装">安装</h4><p>nifi<a href="https://nifi.apache.org/download.html" target="_blank" rel="external">下载页面</a>提供zip和tarball下载，下载后解压，在配置好java环境(Java 8 以上)后可以直接通过进入<code>bin</code>目录运行<code>./nifi.sh start</code>即可。</p>
+<p>对于安装了Homebrew的macOS用户可以直接通过<code>brew install nifi</code>进行安装</p>
+<blockquote>
+<p>运行时日志打印在logs目录下，一般我喜欢<code>./nifi.sh start &amp;&amp; tail -f logs/nifi-app.log</code>直接看启动信息</p>
+</blockquote>
+<h4 id="启动界面">启动界面</h4><p>（待补充）</p>
+<h4 id="简单实例运行">简单实例运行</h4><p>Nifi为了增加复用性，有一个模板的概念，即构建完成的应用或者部分模块能够导出为模板文件（xml描述文件）之后可以通过导入直接生成一个可以运行的应用。<a href="https://cwiki.apache.org/confluence/display/NIFI/Example+Dataflow+Templates" target="_blank" rel="external">这个链接</a>里面有几个例子，可以下载后导入到项目中使用。</p>
+<p>比如simple-httpget-route.template.xml这个模板：<br><img src="simple-httpget-route-template.png" alt="simple httpget route template screenshot"><br>配置好putFile的Directory属性以及，把Automatically Terminate Relationships的Success和Failure都设置中断后，即可点击运行按钮启动这个应用。<br><img src="simple-httpget-route-template-config.png" alt="simple httpget route template config screenshot"></p>
+<p>这个应用处理的逻辑是：</p>
+<ol>
+<li>获取localhost:8080/nifi页面内容,并以 temp.txt的名字发给ExtractText这个处理器</li>
+<li>抽取<code>&lt;title&gt;&lt;/title&gt;</code>内文字</li>
+<li>检查是不是<code>Nifi</code></li>
+<li>如果是的话，将该文件temp.txt存到目标地址</li>
+</ol>
+<h4 id="基本概念介绍">基本概念介绍</h4><p>在Nifi里面有几个<a href="http://nifi.apache.org/docs/nifi-docs/html/overview.html#the-core-concepts-of-nifi" target="_blank" rel="external">基本的概念</a>需要介绍一下：</p>
+<ol>
+<li>FlowFile：它是在处理器（Processor)之间流转的对象，伴随它的还有一组key/value表示的属性（attributes)</li>
+<li>FlowFile Processor: 处理器，它是实际处理业务的逻辑单元。通过将FlowFile内容及其属性进行一定操作后，交由后续处理器处理。</li>
+<li>Connection: 它表示Processor之间的顺序关系，也是FlowFile的内容流向，它的内部实现是基于Java的<a href="https://nifi.apache.org/docs/nifi-docs/html/nifi-in-depth.html#DeeperView" target="_blank" rel="external">队列</a>,</li>
+<li>FlowFile Controller, 它充当调度器的作用。</li>
+<li>Process Group: 在Nifi中，一个Process Group是一个具体业务的组，它内部是一系列Processor组成的具体处理逻辑的应用。它可以通过Input port 和output port 来指定输入和输出。通过它的分离，每个Process Group处理不同业务逻辑，能够减少耦合，使逻辑更清楚。</li>
+</ol>
+<h4 id="架构（这部分没深入了解）"><a href="http://nifi.apache.org/docs/nifi-docs/html/overview.html#nifi-architecture" target="_blank" rel="external">架构</a>（这部分没深入了解）</h4><p><img src="nifi-architecture-overview.png" alt="Nifi Architecture Overview"></p>
+<p>整个架构如上图所示，整个项目是跑在JVM上的，</p>
+<p>Web Server即默认在<code>http://localhost:8080/nifi</code>提供的界面，以及<code>http://localhost:8080/nifi-api/resources</code>下提供的一系列接口。它基于Jetty，前端由JQuery等插件实现。</p>
+<p>Flow Controller, 提供管理和调度资源的功能（感觉它是个调度器）</p>
+<p>FlowFile/Content/Provenance Repository 这些是为了保证Failover机制而作的一些Write ahead 日志，详细介绍在<a href="https://cwiki.apache.org/confluence/display/NIFI/NiFi&#39;s+Write-Ahead+Log+Implementation" target="_blank" rel="external">这里</a>，它主要介绍了这个write-ahead log的实现细节和算法，包括如何写、校验、回滚write-ahead log</p>
+<h4 id="后面更新的内容">后面更新的内容</h4><ol>
+<li>Processor的实现细节</li>
+<li>如何动手写一个Processor</li>
+<li>Cluster的搭建（我还没做过，目前都是单机的）</li>
+</ol>
+<p><img src="/assets/images/nifi-logo.png" alt="Apache Nifi Logl"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="什么是Apache_Nifi">什么是Apache Nifi</h2><p>Apache Nifi 是一个定义流数据处理作业的平台服务，它提供直观的界面供开发者进行业务逻辑定制，能够方便地使用原生组件（Processor）也可以自己开发组件来构建流式数据处理应用。]]>
+    </summary>
+    
+      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+    
+      <category term="Apache" scheme="http://kymtwyf.github.io/categories/Tech/Apache/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[近期活动小结]]></title>
