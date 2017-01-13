@@ -21,16 +21,16 @@
 创建一个 Event12345678910111213141516171819202">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="mysql event scheduler 用法">
-<meta property="og:url" content="http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/index.html">
+<meta property="og:url" content="https://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/index.html">
 <meta property="og:site_name" content="Wu Yongfeng - Blog">
 <meta property="og:description" content="想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西event scheduler
 整理了一下 Event Scheduler 的主要用法 
 打开1SET GLOBAL event_scheduler = ON;
 关闭1SET GLOBAL event_scheduler = OFF;
 创建一个 Event12345678910111213141516171819202">
-<meta property="og:image" content="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020346/1.pic_vymgmv.jpg">
-<meta property="og:image" content="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020757/2.pic_ml0ssr.jpg">
-<meta property="og:updated_time" content="2016-03-15T07:56:27.000Z">
+<meta property="og:image" content="https://res.cloudinary.com/denrcs4mp/image/upload/v1458020346/1.pic_vymgmv.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/denrcs4mp/image/upload/v1458020757/2.pic_ml0ssr.jpg">
+<meta property="og:updated_time" content="2017-01-13T05:13:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql event scheduler 用法">
 <meta name="twitter:description" content="想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西event scheduler
@@ -42,8 +42,8 @@
     
     
     
-        <meta property="og:image" content="/2016/03/11/mysql-event-scheduler-usage/http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png" />
+        <meta property="og:image" content="/2016/03/11/mysql-event-scheduler-usage/https://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/https://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png" />
     
     
     
@@ -255,7 +255,7 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <h6 id="查看现在所有的_Events">查看现在所有的 Events</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">events</span>;</span></span><br></pre></td></tr></table></figure>
-<p>以下是我测试的 event<br><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020346/1.pic_vymgmv.jpg" alt="所有 event"></p>
+<p>以下是我测试的 event<br><img src="https://res.cloudinary.com/denrcs4mp/image/upload/v1458020346/1.pic_vymgmv.jpg" alt="所有 event"></p>
 <p><em>图中Status 为 disable 是我手动停止的</em></p>
 <h6 id="停止一个_Event，修改它">停止一个 Event，修改它</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">ALTER</span></span><br><span class="line">    [DEFINER = &#123; <span class="keyword">user</span> | <span class="keyword">CURRENT_USER</span> &#125;]</span><br><span class="line">    <span class="keyword">EVENT</span> event_name</span><br><span class="line">    [<span class="keyword">ON</span> SCHEDULE schedule]</span><br><span class="line">    [<span class="keyword">ON</span> COMPLETION [<span class="keyword">NOT</span>] <span class="keyword">PRESERVE</span>]</span><br><span class="line">    [RENAME <span class="keyword">TO</span> new_event_name]</span><br><span class="line">    [<span class="keyword">ENABLE</span> | <span class="keyword">DISABLE</span> | <span class="keyword">DISABLE</span> <span class="keyword">ON</span> <span class="keyword">SLAVE</span>]</span><br><span class="line">    [<span class="keyword">COMMENT</span> <span class="string">'comment'</span>]</span><br><span class="line">    [<span class="keyword">DO</span> event_body]</span></span><br></pre></td></tr></table></figure>
 <p>例子：</p>
@@ -269,7 +269,7 @@ var _hmt = _hmt || [];
 <li>查看刚才的insert_every_1am_after_one_week<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">event</span> insert_every_1am_after_one_week</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020757/2.pic_ml0ssr.jpg" alt="show create event"></p>
+<p><img src="https://res.cloudinary.com/denrcs4mp/image/upload/v1458020757/2.pic_ml0ssr.jpg" alt="show create event"></p>
 <h6 id="删除一个_event">删除一个 event</h6><p>上次遇到一个因为 definer 不对的 event 报错：</p>
 <blockquote>
 <p>[ERROR] Event Scheduler: [USER@%][MY_DB.recalcSortWeight] The user specified as a definer (‘USER’@’%’) does not exist 2016-03-11 00:04:34<br>查看了一下，这个 event 并不是我需要的，也不知道谁写的，所以删了算了<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DROP</span> <span class="keyword">EVENT</span> [<span class="keyword">IF</span> <span class="keyword">EXISTS</span>] event_name</span></span><br></pre></td></tr></table></figure></p>
@@ -318,7 +318,7 @@ var _hmt = _hmt || [];
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/&amp;title=[Wu Yongfeng&#39;s Blog] mysql event scheduler 用法&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=https://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/&amp;title=[Wu Yongfeng&#39;s Blog] mysql event scheduler 用法&amp;pic=https://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png">
                 <i class="fa fa-weibo"></i>
             </a>
         </li>
@@ -387,7 +387,7 @@ var _hmt = _hmt || [];
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/&amp;title=[Wu Yongfeng&#39;s Blog] mysql event scheduler 用法&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png">
+            <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?url=https://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/&amp;title=[Wu Yongfeng&#39;s Blog] mysql event scheduler 用法&amp;pic=https://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png">
                 <i class="fa fa-weibo"></i>
             </a>
         </li>
@@ -413,7 +413,7 @@ var _hmt = _hmt || [];
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?url=http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/&amp;title=[Wu Yongfeng&#39;s Blog] mysql event scheduler 用法&amp;pic=http://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png">
+            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?url=https://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/&amp;title=[Wu Yongfeng&#39;s Blog] mysql event scheduler 用法&amp;pic=https://res.cloudinary.com/denrcs4mp/image/upload/v1457680776/mysql-event-scheduler1-e1394042071227_ajsd7o.png">
                 <i class="fa fa-weibo"></i><span class="">Share on Weibo</span>
             </a>
         </li>        

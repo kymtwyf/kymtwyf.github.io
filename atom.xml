@@ -3,9 +3,9 @@
   <title><![CDATA[Wu Yongfeng - Blog]]></title>
   
   <link href="/atom.xml" rel="self"/>
-  <link href="http://kymtwyf.github.io/"/>
+  <link href="https://kymtwyf.github.io/"/>
   <updated>2017-01-12T14:30:31.000Z</updated>
-  <id>http://kymtwyf.github.io/</id>
+  <id>https://kymtwyf.github.io/</id>
   
   <author>
     <name><![CDATA[Wu Yongfeng]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[Apache Nifi 定义和开发流式数据处理应用]]></title>
-    <link href="http://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/"/>
-    <id>http://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/</id>
+    <link href="https://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/"/>
+    <id>https://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/</id>
     <published>2017-01-11T13:34:10.000Z</published>
     <updated>2017-01-12T14:30:31.000Z</updated>
     <content type="html"><![CDATA[<h2 id="什么是Apache_Nifi">什么是Apache Nifi</h2><p>Apache Nifi 是一个定义流数据处理作业的平台服务，它提供直观的界面供开发者进行业务逻辑定制，能够方便地使用原生组件（Processor）也可以自己开发组件来构建流式数据处理应用。</p>
@@ -62,16 +62,16 @@
     <![CDATA[<h2 id="什么是Apache_Nifi">什么是Apache Nifi</h2><p>Apache Nifi 是一个定义流数据处理作业的平台服务，它提供直观的界面供开发者进行业务逻辑定制，能够方便地使用原生组件（Processor）也可以自己开发组件来构建流式数据处理应用。]]>
     </summary>
     
-      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
     
-      <category term="Apache" scheme="http://kymtwyf.github.io/categories/Tech/Apache/"/>
+      <category term="Apache" scheme="https://kymtwyf.github.io/categories/Tech/Apache/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[近期活动小结]]></title>
-    <link href="http://kymtwyf.github.io/2016/05/16/recent-activities/"/>
-    <id>http://kymtwyf.github.io/2016/05/16/recent-activities/</id>
+    <link href="https://kymtwyf.github.io/2016/05/16/recent-activities/"/>
+    <id>https://kymtwyf.github.io/2016/05/16/recent-activities/</id>
     <published>2016-05-16T13:17:43.000Z</published>
     <updated>2016-05-16T13:42:58.000Z</updated>
     <content type="html"><![CDATA[<p>好久没更新了，最近在忙一些事情，主要是暑假实习面了几家，想着攒攒面试经验和实习经历。</p>
@@ -119,27 +119,27 @@
 <p>]]>
     </summary>
     
-      <category term="activities" scheme="http://kymtwyf.github.io/tags/activities/"/>
+      <category term="activities" scheme="https://kymtwyf.github.io/tags/activities/"/>
     
-      <category term="books" scheme="http://kymtwyf.github.io/tags/books/"/>
+      <category term="books" scheme="https://kymtwyf.github.io/tags/books/"/>
     
-      <category term="interview" scheme="http://kymtwyf.github.io/tags/interview/"/>
+      <category term="interview" scheme="https://kymtwyf.github.io/tags/interview/"/>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[替换图片中的二维码]]></title>
-    <link href="http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/"/>
-    <id>http://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/</id>
+    <link href="https://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/"/>
+    <id>https://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/</id>
     <published>2016-04-05T14:26:05.000Z</published>
-    <updated>2016-04-06T10:15:26.000Z</updated>
+    <updated>2017-01-13T05:13:20.000Z</updated>
     <content type="html"><![CDATA[<p>遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。<br>找到 <a href="https://pypi.python.org/pypi/zbar" target="_blank" rel="external">zbar</a> 这个好用的库就搞定了大部分了，下面直接贴代码</p>
 <script src="//gist.github.com/4b194ae91f43aff4883f82b8bebd9419.js?file=replaceqr.py"></script>
 <p>效果如下：</p>
-<div class="figure nocaption fig-50"><a class="fancybox" href="" title="origin"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866549/from_hw4ei4.png" width="" height="" alt="origin"></a></div>
-<div class="figure nocaption fig-50"><a class="fancybox" href="" title="after"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png" width="" height="" alt="after"></a></div>
+<div class="figure nocaption fig-50"><a class="fancybox" href="" title="origin"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/v1459866549/from_hw4ei4.png" width="" height="" alt="origin"></a></div>
+<div class="figure nocaption fig-50"><a class="fancybox" href="" title="after"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/v1459866907/to_gd20vr.png" width="" height="" alt="after"></a></div>
 <h3 id="References">References</h3><ol>
 <li><a href="https://automatetheboringstuff.com/chapter17/" target="_blank" rel="external">https://automatetheboringstuff.com/chapter17/</a></li>
 <li><a href="http://stackoverflow.com/q/23796025/2428562" target="_blank" rel="external">http://stackoverflow.com/q/23796025/2428562</a></li>
@@ -149,22 +149,22 @@
     <![CDATA[<p>遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。<br>找到 <a href="https://pypi.python.org/pypi/zbar" target="_blank" rel="external">zbar</a>]]>
     </summary>
     
-      <category term="python" scheme="http://kymtwyf.github.io/tags/python/"/>
+      <category term="python" scheme="https://kymtwyf.github.io/tags/python/"/>
     
-      <category term="qrtools" scheme="http://kymtwyf.github.io/tags/qrtools/"/>
+      <category term="qrtools" scheme="https://kymtwyf.github.io/tags/qrtools/"/>
     
-      <category term="zbar" scheme="http://kymtwyf.github.io/tags/zbar/"/>
+      <category term="zbar" scheme="https://kymtwyf.github.io/tags/zbar/"/>
     
-      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[mysql event scheduler 用法]]></title>
-    <link href="http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/"/>
-    <id>http://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/</id>
+    <link href="https://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/"/>
+    <id>https://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/</id>
     <published>2016-03-11T07:10:50.000Z</published>
-    <updated>2016-03-15T07:56:27.000Z</updated>
+    <updated>2017-01-13T05:13:21.000Z</updated>
     <content type="html"><![CDATA[<p>想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西<a href="https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html" target="_blank" rel="external">event scheduler</a></p>
 <p>整理了一下 Event Scheduler 的主要用法 </p>
 <h6 id="打开">打开</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> event_scheduler = <span class="keyword">ON</span>;</span></span><br></pre></td></tr></table></figure>
@@ -180,7 +180,7 @@
 </li>
 </ol>
 <h6 id="查看现在所有的_Events">查看现在所有的 Events</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">events</span>;</span></span><br></pre></td></tr></table></figure>
-<p>以下是我测试的 event<br><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020346/1.pic_vymgmv.jpg" alt="所有 event"></p>
+<p>以下是我测试的 event<br><img src="https://res.cloudinary.com/denrcs4mp/image/upload/v1458020346/1.pic_vymgmv.jpg" alt="所有 event"></p>
 <p><em>图中Status 为 disable 是我手动停止的</em></p>
 <h6 id="停止一个_Event，修改它">停止一个 Event，修改它</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">ALTER</span></span><br><span class="line">    [DEFINER = &#123; <span class="keyword">user</span> | <span class="keyword">CURRENT_USER</span> &#125;]</span><br><span class="line">    <span class="keyword">EVENT</span> event_name</span><br><span class="line">    [<span class="keyword">ON</span> SCHEDULE schedule]</span><br><span class="line">    [<span class="keyword">ON</span> COMPLETION [<span class="keyword">NOT</span>] <span class="keyword">PRESERVE</span>]</span><br><span class="line">    [RENAME <span class="keyword">TO</span> new_event_name]</span><br><span class="line">    [<span class="keyword">ENABLE</span> | <span class="keyword">DISABLE</span> | <span class="keyword">DISABLE</span> <span class="keyword">ON</span> <span class="keyword">SLAVE</span>]</span><br><span class="line">    [<span class="keyword">COMMENT</span> <span class="string">'comment'</span>]</span><br><span class="line">    [<span class="keyword">DO</span> event_body]</span></span><br></pre></td></tr></table></figure>
 <p>例子：</p>
@@ -194,7 +194,7 @@
 <li>查看刚才的insert_every_1am_after_one_week<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">event</span> insert_every_1am_after_one_week</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1458020757/2.pic_ml0ssr.jpg" alt="show create event"></p>
+<p><img src="https://res.cloudinary.com/denrcs4mp/image/upload/v1458020757/2.pic_ml0ssr.jpg" alt="show create event"></p>
 <h6 id="删除一个_event">删除一个 event</h6><p>上次遇到一个因为 definer 不对的 event 报错：</p>
 <blockquote>
 <p>[ERROR] Event Scheduler: [USER@%][MY_DB.recalcSortWeight] The user specified as a definer (‘USER’@’%’) does not exist 2016-03-11 00:04:34<br>查看了一下，这个 event 并不是我需要的，也不知道谁写的，所以删了算了<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DROP</span> <span class="keyword">EVENT</span> [<span class="keyword">IF</span> <span class="keyword">EXISTS</span>] event_name</span></span><br></pre></td></tr></table></figure></p>
@@ -204,22 +204,22 @@
     <![CDATA[<p>想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西<a href="https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html" target="_blank" rel="exter]]>
     </summary>
     
-      <category term="event scheduler" scheme="http://kymtwyf.github.io/tags/event-scheduler/"/>
+      <category term="event scheduler" scheme="https://kymtwyf.github.io/tags/event-scheduler/"/>
     
-      <category term="mysql" scheme="http://kymtwyf.github.io/tags/mysql/"/>
+      <category term="mysql" scheme="https://kymtwyf.github.io/tags/mysql/"/>
     
-      <category term="show create event" scheme="http://kymtwyf.github.io/tags/show-create-event/"/>
+      <category term="show create event" scheme="https://kymtwyf.github.io/tags/show-create-event/"/>
     
-      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[spring parameter validation in json]]></title>
-    <link href="http://kymtwyf.github.io/2016/01/19/spring-parameter-validation/"/>
-    <id>http://kymtwyf.github.io/2016/01/19/spring-parameter-validation/</id>
+    <link href="https://kymtwyf.github.io/2016/01/19/spring-parameter-validation/"/>
+    <id>https://kymtwyf.github.io/2016/01/19/spring-parameter-validation/</id>
     <published>2016-01-19T10:46:48.000Z</published>
-    <updated>2016-03-11T07:13:18.000Z</updated>
+    <updated>2017-01-13T05:13:22.000Z</updated>
     <content type="html"><![CDATA[<p>参考先摆在前面<a href="http://fruzenshtein.com/spring-mvc-validator-initbinder/" target="_blank" rel="external">Reference</a></p>
 <p>这两天写代码遇到一个问题：如果是直接通过 <code>@RequestBody</code>来创建一个 Java 对象的方式，虽然可以直接 map 一个 json 对象到 Java 对象。为了对该对象的参数做一些验证，但又不想自己来组装这个对象写成很长的一段参数列表 ：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@RequestMapping</span>(value=<span class="string">"/yourapi"</span>, method=RequestMethod.POST)</span><br><span class="line">public ModelAndView <span class="function">createNewShop</span>(<span class="variable">@RequestParam</span> Value1 value1,</span><br><span class="line">                                <span class="variable">@RequestParam</span> Value2 value2</span><br><span class="line">                                <span class="comment">//, ...长长的一串</span></span><br><span class="line">                                ) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这时实现一些必要参数的验证，就可以用 Validator 来进行验证，步骤分以下几个</p>
@@ -246,28 +246,28 @@
 <p>这两天写代码遇到一个问]]>
     </summary>
     
-      <category term="Spring Validator" scheme="http://kymtwyf.github.io/tags/Spring-Validator/"/>
+      <category term="Spring Validator" scheme="https://kymtwyf.github.io/tags/Spring-Validator/"/>
     
-      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Filco 圣手二代87键 Mac 键对应]]></title>
-    <link href="http://kymtwyf.github.io/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/"/>
-    <id>http://kymtwyf.github.io/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/</id>
+    <link href="https://kymtwyf.github.io/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/"/>
+    <id>https://kymtwyf.github.io/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/</id>
     <published>2015-12-30T03:01:53.000Z</published>
-    <updated>2016-01-28T07:18:59.000Z</updated>
+    <updated>2017-01-13T05:13:23.000Z</updated>
     <content type="html"><![CDATA[<p>Filco <a href="https://detail.tmall.com/item.htm?id=19332346616&amp;spm=a1z0k.7385961.1997985097.d4918997.6cQPe0&amp;_u=s41e7ioec03&amp;sku_properties=5919063:6536025" target="_blank" rel="external">这款键盘</a>我已经盯上好久了，室友有一块 Filco 蓝牙 mini 的感觉太小，手比较大的我不是很适合，而且听说蓝牙经常会有连接问题，逐决定买 87键的。最近听说朋友马上要回上海了，所以托朋友从<a href="http://www.amazon.co.jp/FILCO-US%E3%82%A2%E3%82%B9%E3%82%AD%E3%83%BC%E9%85%8D%E5%88%9787%E3%82%AD%E3%83%BC%E3%83%BB%E5%89%8D%E9%9D%A2%E5%8D%B0%E5%88%B7-%E7%8B%ACCherryMX%E9%BB%92%E8%BB%B8%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81%E3%83%A1%E3%82%AB%E3%83%8B%E3%82%AB%E3%83%AB%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89-FKBN87ML-EFB2/dp/B0050ODQEI/ref=sr_1_1?ie=UTF8&amp;qid=1453962563&amp;sr=8-1&amp;keywords=FKBN87ML%2FEFB2" target="_blank" rel="external">日亚</a>上面买了一块(型号号为<code>FKBN87ML/EFB2</code>)。 比较中意侧刻的键盘，87键大小也正好合适，还有<a href="http://www.amazon.co.jp/Majestouch-2-Tenkeyless-Linear-Keyboard-FKBN87ML/dp/B01AN0JUKM/ref=sr_1_2?ie=UTF8&amp;qid=1453962515&amp;sr=8-2&amp;keywords=FKBN87ML%2FEB2" target="_blank" rel="external">正刻的</a>(型号为<code>FKBN87ML/EB2</code>)。11940 JPY 折合约 650 RMB ，比 X 宝便宜了200块。</p>
 <h3 id="Map_command_键">Map command 键</h3><p>Mac 和 win的键盘不一样，但使用 Mac 一年时间感觉 Mac 键盘部局还是比较好用的。为了按键匹配把 Alt 和 Win 键换一下，可以直接在 Mac的设置中设置：</p>
 <p>Setting -&gt; Keyboard -&gt; Modifier Keys… -&gt; Select Keyboard (choose USB Keyboard) -&gt; switch Option Key and Command Key </p>
-<div class="figure fig-25"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963918/3.pic_hqmqaz.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963918/3.pic_hqmqaz.jpg" width="" height="" alt=""></a></div> <div class="figure fig-25"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963916/4.pic_dn5dmd.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963916/4.pic_dn5dmd.jpg" width="" height="" alt=""></a></div> <div class="figure fig-25"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/v1453963917/5.pic_yejata.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1453963917/5.pic_yejata.jpg" width="" height="" alt=""></a></div> <div class="figure fig-25"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963917/6.pic_vhtsmm.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963917/6.pic_vhtsmm.jpg" width="" height="" alt=""></a></div>
+<div class="figure fig-25"><a class="fancybox" href="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963918/3.pic_hqmqaz.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963918/3.pic_hqmqaz.jpg" width="" height="" alt=""></a></div> <div class="figure fig-25"><a class="fancybox" href="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963916/4.pic_dn5dmd.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963916/4.pic_dn5dmd.jpg" width="" height="" alt=""></a></div> <div class="figure fig-25"><a class="fancybox" href="https://res.cloudinary.com/denrcs4mp/image/upload/v1453963917/5.pic_yejata.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/v1453963917/5.pic_yejata.jpg" width="" height="" alt=""></a></div> <div class="figure fig-25"><a class="fancybox" href="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963917/6.pic_vhtsmm.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_500/v1453963917/6.pic_vhtsmm.jpg" width="" height="" alt=""></a></div>
 <p>这样设置完之后 Win键就和 Command 对应了，<code>Command + C</code>, <code>Command + V</code> 用起来习惯多了。</p>
 <h3 id="设置多媒体键">设置多媒体键</h3><p>经常听音乐，所以常需要调节音量，但 F1-F12已经被我改为普通功能了，所以不能直接改过来用作多媒体控制（我主要用来控制音量）在 zhihu 上找到有人推荐<a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="external">Karabiner</a> 下载了一个来玩，感觉还是蛮好用的。</p>
 <p>这里我将87键键盘的右上角三个键 Ps/SR, ScLk, Pa/Br 键对应到音量静音、减、增三个键，这个功能有预置，可以直接搜索到并 enable 即可：</p>
-<div class="figure fig-100"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/v1453965115/10.pic_hd_fksqoi.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1453965115/10.pic_hd_fksqoi.jpg" width="" height="" alt=""></a></div>
+<div class="figure fig-100"><a class="fancybox" href="https://res.cloudinary.com/denrcs4mp/image/upload/v1453965115/10.pic_hd_fksqoi.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/v1453965115/10.pic_hd_fksqoi.jpg" width="" height="" alt=""></a></div>
 <p>另外也可以自定义按键对应：</p>
-<div class="figure fig-100"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_800/v1453964892/8.pic_hd_fcosmz.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_800/v1453964892/8.pic_hd_fcosmz.jpg" width="" height="" alt=""></a></div>
+<div class="figure fig-100"><a class="fancybox" href="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_800/v1453964892/8.pic_hd_fcosmz.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_800/v1453964892/8.pic_hd_fcosmz.jpg" width="" height="" alt=""></a></div>
 <p>打开 <code>private.xml</code> 输入需要定制的内容</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这里我把 Insert 键换成 Launchpad 键--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">root</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">name</span>&gt;</span>Insert Key Launchpad<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">identifier</span>&gt;</span>private_pc_insert_to_launchpad<span class="tag">&lt;/<span class="title">identifier</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">autogen</span>&gt;</span>__KeyToKey__ KeyCode::PC_INSERT,KeyCode::LAUNCHPAD<span class="tag">&lt;/<span class="title">autogen</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>保存后 reload 即可。</p>
@@ -277,20 +277,20 @@
     <![CDATA[<p>Filco <a href="https://detail.tmall.com/item.htm?id=19332346616&amp;spm=a1z0k.7385961.1997985097.d4918997.6cQPe0&amp;_u=s41e7ioec03&amp;s]]>
     </summary>
     
-      <category term="Filco" scheme="http://kymtwyf.github.io/tags/Filco/"/>
+      <category term="Filco" scheme="https://kymtwyf.github.io/tags/Filco/"/>
     
-      <category term="Mac" scheme="http://kymtwyf.github.io/tags/Mac/"/>
+      <category term="Mac" scheme="https://kymtwyf.github.io/tags/Mac/"/>
     
-      <category term="Tools" scheme="http://kymtwyf.github.io/categories/Tools/"/>
+      <category term="Tools" scheme="https://kymtwyf.github.io/categories/Tools/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Works Applications 实习经历]]></title>
-    <link href="http://kymtwyf.github.io/2015/12/22/internship-at-works-applications/"/>
-    <id>http://kymtwyf.github.io/2015/12/22/internship-at-works-applications/</id>
+    <link href="https://kymtwyf.github.io/2015/12/22/internship-at-works-applications/"/>
+    <id>https://kymtwyf.github.io/2015/12/22/internship-at-works-applications/</id>
     <published>2015-12-22T08:17:57.000Z</published>
-    <updated>2015-12-23T08:24:27.000Z</updated>
+    <updated>2017-01-13T05:13:24.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Works_Appliations">Works Appliations</h2><h3 id="面试经过">面试经过</h3><p>关于这家公司的印象大致也就是给的工资比较多，比一般应届毕业生高出不少，其他就没有多少了。</p>
 <p>后面通宣讲会知道是做ERP的，但没SAP和ORACLE这样的规模，抱着试试的态度参加了面试。过程是：</p>
 <ol>
@@ -332,20 +332,20 @@
 <p>后面通宣讲会知道是做ERP]]>
     </summary>
     
-      <category term="Internship" scheme="http://kymtwyf.github.io/tags/Internship/"/>
+      <category term="Internship" scheme="https://kymtwyf.github.io/tags/Internship/"/>
     
-      <category term="Works Applications" scheme="http://kymtwyf.github.io/tags/Works-Applications/"/>
+      <category term="Works Applications" scheme="https://kymtwyf.github.io/tags/Works-Applications/"/>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[基于token验证的web应用jAccount登录]]></title>
-    <link href="http://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/"/>
-    <id>http://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/</id>
+    <link href="https://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/"/>
+    <id>https://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/</id>
     <published>2015-11-13T15:01:19.000Z</published>
-    <updated>2015-12-22T08:14:29.000Z</updated>
+    <updated>2017-01-13T05:13:24.000Z</updated>
     <content type="html"><![CDATA[<p>最近在做一个学校的项目，需要提供给上海交通大学学生和老师使用，所以需要使用<a href="http://developer.sjtu.edu.cn/wiki/JAccount" target="_blank" rel="external">jAccount登录</a></p>
 <h3 id="jAccount简介">jAccount简介</h3><p><a href="https://jaccount.sjtu.edu.cn/jaccount/index.jsp" target="_blank" rel="external">【详情看这里】</a></p>
 <blockquote>
@@ -411,24 +411,24 @@
     <![CDATA[<p>最近在做一个学校的项目，需要提供给上海交通大学学生和老师使用，所以需要使用<a href="http://developer.sjtu.edu.cn/wiki/JAccount" target="_blank" rel="external">jAccount登录</a></]]>
     </summary>
     
-      <category term="jAccount" scheme="http://kymtwyf.github.io/tags/jAccount/"/>
+      <category term="jAccount" scheme="https://kymtwyf.github.io/tags/jAccount/"/>
     
-      <category term="sjtu" scheme="http://kymtwyf.github.io/tags/sjtu/"/>
+      <category term="sjtu" scheme="https://kymtwyf.github.io/tags/sjtu/"/>
     
-      <category term="spring" scheme="http://kymtwyf.github.io/tags/spring/"/>
+      <category term="spring" scheme="https://kymtwyf.github.io/tags/spring/"/>
     
-      <category term="token based auth" scheme="http://kymtwyf.github.io/tags/token-based-auth/"/>
+      <category term="token based auth" scheme="https://kymtwyf.github.io/tags/token-based-auth/"/>
     
-      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HackShanghai 2015小记]]></title>
-    <link href="http://kymtwyf.github.io/2015/11/11/hackshanghai2015/"/>
-    <id>http://kymtwyf.github.io/2015/11/11/hackshanghai2015/</id>
+    <link href="https://kymtwyf.github.io/2015/11/11/hackshanghai2015/"/>
+    <id>https://kymtwyf.github.io/2015/11/11/hackshanghai2015/</id>
     <published>2015-11-10T16:13:21.000Z</published>
-    <updated>2015-11-12T06:54:44.000Z</updated>
+    <updated>2017-01-13T05:13:25.000Z</updated>
     <content type="html"><![CDATA[<p>上周末（2015.11.07-08）两天去上海纽约大学（一所很土豪的学校，据说学费是4.5万刀一年）参加了黑客马拉松比赛。</p>
 <p>这是我第二次参加此活动，去年由畅哥带领着做了一次。上次参赛的项目大概的idea是用pepple watch发送简单的自定义消息。比如亲人间的示爱或者老年人危急时的求助消息。</p>
 <p>这一次我们的想法也是结合硬件去做一些事情，但参赛前并没有非常具体，只是想看比赛方提供什么再决定做。当得知提供的硬件包括：Arduino/ Leap Motion/ Pebble/ Nao/ Google Cardboard 后，我就打算玩一下Nao机器人，再结合Leap Motion什么的做点儿有意思的东西~</p>
@@ -442,8 +442,8 @@
 <p>哈，听上去确实有点儿远大。我们也知道怎么实现。拿到机器人才知道问题挺多的。</p>
 <h3 id="首先，我们不知道怎么让机器人动起来。">首先，我们不知道怎么让机器人动起来。</h3><p>图灵机器人只给了一个email，大概讲述了一下资料怎么来。我们需要在第一次使用的时候登录Nao机器人（用网线连接。。。）我们都没有带 ，只能问工作人员。申请了好久，大概5点多才拿到线…</p>
 <p>用网线连接Nao机器人，按一下按钮，Nao自动读出IP地址“大家好，我是Nao，我的互联网地址是十、两百零九…” 连接好之后再安装了<strong>choregraphe</strong> 一个IDE。这个IDE比较方便地让我们操作Nao机器人，并且提供了一些预置的功能比如说话、做动作、语音识别。</p>
-<div class="figure nocaption fig-50"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_3004/v1447221082/Choregraphe2_qu26yt.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,h_500/v1447221082/Choregraphe2_qu26yt.jpg" ui1""="" width="" height="" alt=""></a></div>
-<div class="figure nocaption fig-50"><a class="fancybox" href="http://res.cloudinary.com/denrcs4mp/image/upload/v1447221074/Choregraphe_exgbhc.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,h_500/v1447221074/Choregraphe_exgbhc.jpg" ui2""="" width="" height="" alt=""></a></div>
+<div class="figure nocaption fig-50"><a class="fancybox" href="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_3004/v1447221082/Choregraphe2_qu26yt.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,h_500/v1447221082/Choregraphe2_qu26yt.jpg" ui1""="" width="" height="" alt=""></a></div>
+<div class="figure nocaption fig-50"><a class="fancybox" href="https://res.cloudinary.com/denrcs4mp/image/upload/v1447221074/Choregraphe_exgbhc.jpg" title="" target="_blank" rel="external"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,h_500/v1447221074/Choregraphe_exgbhc.jpg" ui2""="" width="" height="" alt=""></a></div>
 <p>感谢辛博提供的大力支持，王东老师实验室在前阵子无锡展会的时候用过Nao机器人，所以辛博在这方面有一些经验。原来Nao机器人内置一个Linux，所以可以运行Python。Python可以用来做为服务器处理socket请求或者做一个http服务器。所以我们改变了计划，转用python来做。</p>
 <p>组员都不是很擅长Python,个人只是写过一个小小的爬虫，也是边查边写的… 所以在黑马24小时中我们怒学python！</p>
 <p>Nao 提供了一系列SDK，其中包括C++, JAVA 和python（这些都是后面才慢慢发现的）但PythonSDK(pynaoqi-python-2.7)并不支持EI CAPTAIN… RLGL</p>
@@ -465,58 +465,58 @@
 <p>这是我第二次参加此活动，去年由畅哥带领着做了一次。上次参赛的项目大概的idea是用pepple watch发送简单的自定义消息。比如亲人]]>
     </summary>
     
-      <category term="Android" scheme="http://kymtwyf.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://kymtwyf.github.io/tags/Android/"/>
     
-      <category term="Nao Robot" scheme="http://kymtwyf.github.io/tags/Nao-Robot/"/>
+      <category term="Nao Robot" scheme="https://kymtwyf.github.io/tags/Nao-Robot/"/>
     
-      <category term="Python" scheme="http://kymtwyf.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://kymtwyf.github.io/tags/Python/"/>
     
-      <category term="hackshanghai" scheme="http://kymtwyf.github.io/tags/hackshanghai/"/>
+      <category term="hackshanghai" scheme="https://kymtwyf.github.io/tags/hackshanghai/"/>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Sequel Pro 导出表结构图]]></title>
-    <link href="http://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/"/>
-    <id>http://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/</id>
+    <link href="https://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/"/>
+    <id>https://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/</id>
     <published>2015-10-11T16:52:28.000Z</published>
-    <updated>2016-03-11T07:13:38.000Z</updated>
+    <updated>2017-01-13T05:13:26.000Z</updated>
     <content type="html"><![CDATA[<h1 id="步骤">步骤</h1><ol>
 <li>用Sequel Pro导出<a href="https://en.wikipedia.org/wiki/DOT_(graph_description_language" target="_blank" rel="external">Dot</a>)文件<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File<span class="subst">-&gt; </span>Export<span class="attribute">...</span> <span class="subst">-&gt; </span>Dot</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="http://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_976/v1447171688/undefined_rbvm4m.png" alt="导出"></p>
+<p><img src="https://res.cloudinary.com/denrcs4mp/image/upload/c_scale,w_976/v1447171688/undefined_rbvm4m.png" alt="导出"></p>
 <ol>
 <li>用dot命令（需要先安装graphviz）将dot转为图片<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">dot</span> <span class="tag">-Tjpg</span> <span class="tag">test</span><span class="class">.dot</span> &gt; <span class="tag">test</span><span class="class">.jpg</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>最后导出的图如下：<br><img src="http://res.cloudinary.com/denrcs4mp/image/upload/v1447171824/undefined_euzdji.png" alt="图片"></p>
+<p>最后导出的图如下：<br><img src="https://res.cloudinary.com/denrcs4mp/image/upload/v1447171824/undefined_euzdji.png" alt="图片"></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="步骤">步骤</h1><ol>
 <li>用Sequel Pro导出<a href="https://en.wikipedia.org/wiki/DOT_(graph_description_language" target="_blank" rel="extern]]>
     </summary>
     
-      <category term="Mac" scheme="http://kymtwyf.github.io/tags/Mac/"/>
+      <category term="Mac" scheme="https://kymtwyf.github.io/tags/Mac/"/>
     
-      <category term="Sequel Pro" scheme="http://kymtwyf.github.io/tags/Sequel-Pro/"/>
+      <category term="Sequel Pro" scheme="https://kymtwyf.github.io/tags/Sequel-Pro/"/>
     
-      <category term="mysql" scheme="http://kymtwyf.github.io/tags/mysql/"/>
+      <category term="mysql" scheme="https://kymtwyf.github.io/tags/mysql/"/>
     
-      <category term="table schema" scheme="http://kymtwyf.github.io/tags/table-schema/"/>
+      <category term="table schema" scheme="https://kymtwyf.github.io/tags/table-schema/"/>
     
-      <category term="Tools" scheme="http://kymtwyf.github.io/categories/Tools/"/>
+      <category term="Tools" scheme="https://kymtwyf.github.io/categories/Tools/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Error Could not symlink share/man/man7/]]></title>
-    <link href="http://kymtwyf.github.io/2015/10/12/brew-priviledge/"/>
-    <id>http://kymtwyf.github.io/2015/10/12/brew-priviledge/</id>
+    <link href="https://kymtwyf.github.io/2015/10/12/brew-priviledge/"/>
+    <id>https://kymtwyf.github.io/2015/10/12/brew-priviledge/</id>
     <published>2015-10-11T16:43:49.000Z</published>
-    <updated>2016-03-11T07:13:45.000Z</updated>
+    <updated>2017-01-13T05:13:27.000Z</updated>
     <content type="html"><![CDATA[<p>用brew安装包的时候出现<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error: Could not symlink share/<span class="keyword">man</span>/man7/graphviz.7 </span><br><span class="line">/usr/local/share/<span class="keyword">man</span>/man7 <span class="keyword">is</span> not writable.</span><br><span class="line">错误。</span><br></pre></td></tr></table></figure></p>
 <p>原因是brew link的时候没有root权限，但又不建议用sudo。所以简单粗暴的方法是将/usr/local的owner改为当前用户</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> -R <span class="string">`whoami`</span> /usr/<span class="keyword">local</span></span><br></pre></td></tr></table></figure>
@@ -527,16 +527,16 @@
     <![CDATA[<p>用brew安装包的时候出现<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2]]>
     </summary>
     
-      <category term="Tech" scheme="http://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[小A、小B和小C同学的外包项目]]></title>
-    <link href="http://kymtwyf.github.io/2015/10/02/B/"/>
-    <id>http://kymtwyf.github.io/2015/10/02/B/</id>
+    <link href="https://kymtwyf.github.io/2015/10/02/B/"/>
+    <id>https://kymtwyf.github.io/2015/10/02/B/</id>
     <published>2015-10-01T16:00:00.000Z</published>
-    <updated>2015-10-02T15:44:23.000Z</updated>
+    <updated>2017-01-13T05:13:28.000Z</updated>
     <content type="html"><![CDATA[<h1 id="小A的项目">小A的项目</h1><p>小A最近在谈一个项目，对方是个品牌策划公司（N），负责帮一些知名企业如欧莱雅等策划线上推广方案。公司规划不大，但和欧方关系不错，所以承接了个在微信平台做一款新产品的宣传的项目。由于N公司技术方面没有储备，所以希望找到小A这样的几个同学把项目做下来。对于小A这样的学生来说N公司开价还算不错，所以小A和几个同学商量了一下准备这个项目。项目初期还和欧公司有详细的需求讨论和商议。</p>
 <p>过了几天，N公司在明确了需求后打算和小A签署一份外包合同。由于缺乏经验，小A只是随便看了一眼。但马上发现合同上除了明确需求之外并无小A同学希望的有部分预付款。于是小A和N进行了协商。但N公司非常坚持一定要项目顺利完成并上线后才肯付全款。小A在咨询了一些同学的意见之后觉得存在一定风险，并和N公司协商放弃了本次活动的承接。</p>
 <h1 id="小B的项目">小B的项目</h1><p>小B也在不久前和一家公司（M）协商做一个兰蔻产品的推广活动。由于是朋友介绍，所以小B没有细看需求，只是关于对方提供的价格。他在觉得OK之后打算和另外一个同学一起做这个项目。在细化了所有需求并提供了完整的报价之后，M公司提出不与小B合作。原因是<strong>担心小B没有这方面的项目经验</strong>。所以M用更高的价格找了一家专门负责做类似产品的公司来做这个东西。</p>
@@ -554,18 +554,18 @@
     <![CDATA[<h1 id="小A的项目">小A的项目</h1><p>小A最近在谈一个项目，对方是个品牌策划公司（N），负责帮一些知名企业如欧莱雅等策划线上推广方案。公司规划不大，但和欧方关系不错，所以承接了个在微信平台做一款新产品的宣传的项目。由于N公司技术方面没有储备，所以希望找到小A这样]]>
     </summary>
     
-      <category term="碎碎" scheme="http://kymtwyf.github.io/tags/%E7%A2%8E%E7%A2%8E/"/>
+      <category term="碎碎" scheme="https://kymtwyf.github.io/tags/%E7%A2%8E%E7%A2%8E/"/>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[新域名wuyongfeng.win]]></title>
-    <link href="http://kymtwyf.github.io/2015/09/29/Happy-Birthday/"/>
-    <id>http://kymtwyf.github.io/2015/09/29/Happy-Birthday/</id>
+    <link href="https://kymtwyf.github.io/2015/09/29/Happy-Birthday/"/>
+    <id>https://kymtwyf.github.io/2015/09/29/Happy-Birthday/</id>
     <published>2015-09-29T08:53:33.000Z</published>
-    <updated>2015-09-29T09:28:02.000Z</updated>
+    <updated>2017-01-13T05:13:29.000Z</updated>
     <content type="html"><![CDATA[<p>生日当天注册了个新的域名~</p>
 ]]></content>
     <summary type="html">
@@ -573,16 +573,16 @@
 ]]>
     </summary>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[真不好意思说我学过sql]]></title>
-    <link href="http://kymtwyf.github.io/2015/09/08/mysql-calendar-table-usage/"/>
-    <id>http://kymtwyf.github.io/2015/09/08/mysql-calendar-table-usage/</id>
+    <link href="https://kymtwyf.github.io/2015/09/08/mysql-calendar-table-usage/"/>
+    <id>https://kymtwyf.github.io/2015/09/08/mysql-calendar-table-usage/</id>
     <published>2015-09-07T16:31:09.000Z</published>
-    <updated>2015-09-12T09:39:16.000Z</updated>
+    <updated>2017-01-13T05:13:29.000Z</updated>
     <content type="html"><![CDATA[<p>最近写查询遇到这样一个情况。我需要查到一段时间（比如2015-06-15到2015-07-01）内每一天的总价格。<br>可当我写sql查询的时候，发现如果一天没有内容，那么这一天的数据将不会被sql查出来，意味着从开始到结束的日期中可能会有中断。</p>
 <figure class="highlight sql"><figcaption><span>查询.sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">select <span class="keyword">DATE_FORMAT</span>( <span class="keyword">cast</span>(created_at <span class="keyword">as</span> <span class="built_in">date</span>), <span class="string">'%Y-%m-%d'</span>) <span class="keyword">as</span> <span class="built_in">date</span>, <span class="keyword">count</span>(*) <span class="keyword">as</span> <span class="keyword">num</span> <span class="keyword">from</span> </span><br><span class="line"><span class="string">`order`</span> <span class="keyword">where</span> <span class="string">`id`</span> = <span class="number">3</span>  <span class="keyword">and</span> <span class="string">`created_at`</span>  <span class="keyword">between</span> <span class="string">'2015-06-15'</span> <span class="keyword">and</span> <span class="string">'2015-07-01'</span> </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">cast</span>(created_at <span class="keyword">as</span> <span class="built_in">date</span>)</span></span><br></pre></td></tr></table></figure>
 <p>这样的查询结果如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">22</span>	<span class="number">2</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">23</span>	<span class="number">25</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">24</span>	<span class="number">60</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">25</span>	<span class="number">41</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">26</span>	<span class="number">65</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">27</span>	<span class="number">72</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">28</span>	<span class="number">81</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">29</span>	<span class="number">87</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">30</span>	<span class="number">59</span></span><br></pre></td></tr></table></figure></p>
@@ -602,29 +602,29 @@
 <figure ]]>
     </summary>
     
-      <category term="calendar table" scheme="http://kymtwyf.github.io/tags/calendar-table/"/>
+      <category term="calendar table" scheme="https://kymtwyf.github.io/tags/calendar-table/"/>
     
-      <category term="mysql" scheme="http://kymtwyf.github.io/tags/mysql/"/>
+      <category term="mysql" scheme="https://kymtwyf.github.io/tags/mysql/"/>
     
-      <category term="sql" scheme="http://kymtwyf.github.io/tags/sql/"/>
+      <category term="sql" scheme="https://kymtwyf.github.io/tags/sql/"/>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[前端，我只懂个皮毛]]></title>
-    <link href="http://kymtwyf.github.io/2015/09/02/my-ability-in-front-end/"/>
-    <id>http://kymtwyf.github.io/2015/09/02/my-ability-in-front-end/</id>
+    <link href="https://kymtwyf.github.io/2015/09/02/my-ability-in-front-end/"/>
+    <id>https://kymtwyf.github.io/2015/09/02/my-ability-in-front-end/</id>
     <published>2015-09-02T14:06:48.000Z</published>
-    <updated>2015-09-02T14:54:26.000Z</updated>
+    <updated>2017-01-13T05:13:30.000Z</updated>
     <content type="html"><![CDATA[<h1 id="从今天电面M家实习开始">从今天电面M家实习开始</h1><p>M家在北京招Intern，看到信息说是招Data Mining方面的实习生。想着挺高大上的，然后就抱着试一试，涨涨经验的心态发了一份自己的简历过去。</p>
 <p>结果倒是挺快，第二天（今天，2015.09.02）应收到了电话面试。接到电话我略激动，想着一定要好好表现，争取留下好印象。激动得我把正在厨房煮汤这件事情都忘了…结果锅给烧焦了！</p>
 <p>言归正传。这个电话面试是我经历最轻松，闲谈，扯淡的一次。</p>
 <h1 id="面试过程">面试过程</h1><p>其实没有面试过程，整个过程就是在问我“你觉得你技术水平怎么样？”，“你觉得你在你同学中码代码能力怎样？”，”你希不希望参加到工程项目中，还是说要来做Research发一些文章？”。。。</p>
 <p>前几个问题我真的不知道怎么回答。想到自己<code>可怜</code>的代码经验，基本上没有维护的github，以及一些简单的实习经历，一下子不知道怎么评价自己的代码能力。</p>
 <p>我只能含糊其词地说，我能力应该还可以，但也不是同学中能力最突出的。毕竟我同学中还是有参加过ACM比赛，拿到过奖的人。至于算法啥的，他一概没问，然后问题直接就到了我做过的一些项目。我本来以为在SAP做的关于HANA和UI5的项目已经是比较不错，拿得出手的。结果人家好像一点儿也不care。反而问到我是不是会前端，于是故事开始了。</p>
-<div class="figure center nocaption"><img class="fig-img" src="http://res.cloudinary.com/denrcs4mp/image/upload/v1441205040/frontend-backend_rkt1ex.jpg" width="" height="" alt=""></div>
+<div class="figure center nocaption"><img class="fig-img" src="https://res.cloudinary.com/denrcs4mp/image/upload/v1441205040/frontend-backend_rkt1ex.jpg" width="" height="" alt=""></div>
 <h1 id="我对于前端的想法">我对于前端的想法</h1><p>我做过一些前端的工作，包括给一个初创公司写一些网店功能模块，自己用 nodejs写毕业设计的时候都有涉及到。但要说我是不是对这方面感兴趣或者愿意到M家公司去实习。我的回答是否定的。原因很简单，我对前端只有敬畏之情，不像有个<a href="www.zhangwenli.com">学姐</a>确实是个牛人，前端大神。</p>
 <p>而我的水平只是会用，懂些基本部局，会用bootstrap等框架写个界面，会两行javascript代码，用用jQuery什么的。要真说到前端的学问，我确实知道的太少了。最近加入到随米团队，团队采用的是前后端项目分离的架构。当我看到前端代码库的时候，第一反应是：”原来前端还可以这么写啊！”。从那一刻起，我就觉得我自己不是很会写前端了。</p>
 <p>而至于以后就业，我就更加不会选择做一个前端工程师了。</p>
@@ -637,20 +637,20 @@
 <p>结果倒是挺快，第二天（今天，2015]]>
     </summary>
     
-      <category term="front end" scheme="http://kymtwyf.github.io/tags/front-end/"/>
+      <category term="front end" scheme="https://kymtwyf.github.io/tags/front-end/"/>
     
-      <category term="web" scheme="http://kymtwyf.github.io/tags/web/"/>
+      <category term="web" scheme="https://kymtwyf.github.io/tags/web/"/>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[hexo installation note]]></title>
-    <link href="http://kymtwyf.github.io/2015/09/02/hexo-install-note/"/>
-    <id>http://kymtwyf.github.io/2015/09/02/hexo-install-note/</id>
+    <link href="https://kymtwyf.github.io/2015/09/02/hexo-install-note/"/>
+    <id>https://kymtwyf.github.io/2015/09/02/hexo-install-note/</id>
     <published>2015-09-02T06:38:11.000Z</published>
-    <updated>2015-09-02T07:23:08.000Z</updated>
+    <updated>2017-01-13T05:13:31.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Hexo">Hexo</h2><p>无意中参观了<a href="http://blog.guoyiliang.com/" target="_blank" rel="external">郭老板的博客</a> 发现powered by <a href="http://hexo.io" target="_blank" rel="external">Hexo</a> 终于找到一个比较不错的写博客的工具，里面的<a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme" target="_blank" rel="external">主题</a>我也比较喜欢。</p>
 <h2 id="Hexo_安装">Hexo 安装</h2><p>安装过程比较简单，按照<a href="https://hexo.io/docs/index.html" target="_blank" rel="external">官网步骤</a>就可以了。使用主题也参考官网步骤。<br>这个是我使用的主题<a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme#quick-start" target="_blank" rel="external">tranquilpeak</a></p>
 <p><a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme/blob/master/docs/user.md#installation" target="_blank" rel="external">安装过程</a><br><em>下载安装</em></p>
@@ -675,16 +675,16 @@
     <![CDATA[<h2 id="Hexo">Hexo</h2><p>无意中参观了<a href="http://blog.guoyiliang.com/" target="_blank" rel="external">郭老板的博客</a> 发现powered by <a href="http:/]]>
     </summary>
     
-      <category term="trivial" scheme="http://kymtwyf.github.io/tags/trivial/"/>
+      <category term="trivial" scheme="https://kymtwyf.github.io/tags/trivial/"/>
     
-      <category term="Diary" scheme="http://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[xiaoji]]></title>
-    <link href="http://kymtwyf.github.io/2015/09/02/2015-09-02-xiaoji/"/>
-    <id>http://kymtwyf.github.io/2015/09/02/2015-09-02-xiaoji/</id>
+    <link href="https://kymtwyf.github.io/2015/09/02/2015-09-02-xiaoji/"/>
+    <id>https://kymtwyf.github.io/2015/09/02/2015-09-02-xiaoji/</id>
     <published>2015-09-01T16:07:13.000Z</published>
     <updated>2015-09-01T16:07:13.000Z</updated>
     <content type="html"></content>
