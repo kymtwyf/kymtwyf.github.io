@@ -3,9 +3,9 @@
   <title><![CDATA[Wu Yongfeng - Blog]]></title>
   
   <link href="/atom.xml" rel="self"/>
-  <link href="https://kymtwyf.github.io/"/>
+  <link href="https://wuyf.me/"/>
   <updated>2017-01-12T14:30:31.000Z</updated>
-  <id>https://kymtwyf.github.io/</id>
+  <id>https://wuyf.me/</id>
   
   <author>
     <name><![CDATA[Wu Yongfeng]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[Apache Nifi 定义和开发流式数据处理应用]]></title>
-    <link href="https://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/"/>
-    <id>https://kymtwyf.github.io/2017/01/11/basic-introduction-to-apache-nifi/</id>
+    <link href="https://wuyf.me/2017/01/11/basic-introduction-to-apache-nifi/"/>
+    <id>https://wuyf.me/2017/01/11/basic-introduction-to-apache-nifi/</id>
     <published>2017-01-11T13:34:10.000Z</published>
     <updated>2017-01-12T14:30:31.000Z</updated>
     <content type="html"><![CDATA[<h2 id="什么是Apache_Nifi">什么是Apache Nifi</h2><p>Apache Nifi 是一个定义流数据处理作业的平台服务，它提供直观的界面供开发者进行业务逻辑定制，能够方便地使用原生组件（Processor）也可以自己开发组件来构建流式数据处理应用。</p>
@@ -62,16 +62,16 @@
     <![CDATA[<h2 id="什么是Apache_Nifi">什么是Apache Nifi</h2><p>Apache Nifi 是一个定义流数据处理作业的平台服务，它提供直观的界面供开发者进行业务逻辑定制，能够方便地使用原生组件（Processor）也可以自己开发组件来构建流式数据处理应用。]]>
     </summary>
     
-      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://wuyf.me/categories/Tech/"/>
     
-      <category term="Apache" scheme="https://kymtwyf.github.io/categories/Tech/Apache/"/>
+      <category term="Apache" scheme="https://wuyf.me/categories/Tech/Apache/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[近期活动小结]]></title>
-    <link href="https://kymtwyf.github.io/2016/05/16/recent-activities/"/>
-    <id>https://kymtwyf.github.io/2016/05/16/recent-activities/</id>
+    <link href="https://wuyf.me/2016/05/16/recent-activities/"/>
+    <id>https://wuyf.me/2016/05/16/recent-activities/</id>
     <published>2016-05-16T13:17:43.000Z</published>
     <updated>2016-05-16T13:42:58.000Z</updated>
     <content type="html"><![CDATA[<p>好久没更新了，最近在忙一些事情，主要是暑假实习面了几家，想着攒攒面试经验和实习经历。</p>
@@ -119,20 +119,20 @@
 <p>]]>
     </summary>
     
-      <category term="activities" scheme="https://kymtwyf.github.io/tags/activities/"/>
+      <category term="activities" scheme="https://wuyf.me/tags/activities/"/>
     
-      <category term="books" scheme="https://kymtwyf.github.io/tags/books/"/>
+      <category term="books" scheme="https://wuyf.me/tags/books/"/>
     
-      <category term="interview" scheme="https://kymtwyf.github.io/tags/interview/"/>
+      <category term="interview" scheme="https://wuyf.me/tags/interview/"/>
     
-      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://wuyf.me/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[替换图片中的二维码]]></title>
-    <link href="https://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/"/>
-    <id>https://kymtwyf.github.io/2016/04/05/python-replace-qr-code-in-image/</id>
+    <link href="https://wuyf.me/2016/04/05/python-replace-qr-code-in-image/"/>
+    <id>https://wuyf.me/2016/04/05/python-replace-qr-code-in-image/</id>
     <published>2016-04-05T14:26:05.000Z</published>
     <updated>2017-01-13T05:13:20.000Z</updated>
     <content type="html"><![CDATA[<p>遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。<br>找到 <a href="https://pypi.python.org/pypi/zbar" target="_blank" rel="external">zbar</a> 这个好用的库就搞定了大部分了，下面直接贴代码</p>
@@ -149,20 +149,20 @@
     <![CDATA[<p>遇到一个 task，需要监控二维码被扫码的次数，但无奈二维码被画在上面了，想替换原来的二维码。<br>找到 <a href="https://pypi.python.org/pypi/zbar" target="_blank" rel="external">zbar</a>]]>
     </summary>
     
-      <category term="python" scheme="https://kymtwyf.github.io/tags/python/"/>
+      <category term="python" scheme="https://wuyf.me/tags/python/"/>
     
-      <category term="qrtools" scheme="https://kymtwyf.github.io/tags/qrtools/"/>
+      <category term="qrtools" scheme="https://wuyf.me/tags/qrtools/"/>
     
-      <category term="zbar" scheme="https://kymtwyf.github.io/tags/zbar/"/>
+      <category term="zbar" scheme="https://wuyf.me/tags/zbar/"/>
     
-      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://wuyf.me/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[mysql event scheduler 用法]]></title>
-    <link href="https://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/"/>
-    <id>https://kymtwyf.github.io/2016/03/11/mysql-event-scheduler-usage/</id>
+    <link href="https://wuyf.me/2016/03/11/mysql-event-scheduler-usage/"/>
+    <id>https://wuyf.me/2016/03/11/mysql-event-scheduler-usage/</id>
     <published>2016-03-11T07:10:50.000Z</published>
     <updated>2017-01-13T05:13:21.000Z</updated>
     <content type="html"><![CDATA[<p>想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西<a href="https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html" target="_blank" rel="external">event scheduler</a></p>
@@ -204,20 +204,20 @@
     <![CDATA[<p>想要定时根据条件更新数据库，但又不想写脚本定时去跑任务。这两天发现一个好用的东西<a href="https://dev.mysql.com/doc/refman/5.7/en/event-scheduler.html" target="_blank" rel="exter]]>
     </summary>
     
-      <category term="event scheduler" scheme="https://kymtwyf.github.io/tags/event-scheduler/"/>
+      <category term="event scheduler" scheme="https://wuyf.me/tags/event-scheduler/"/>
     
-      <category term="mysql" scheme="https://kymtwyf.github.io/tags/mysql/"/>
+      <category term="mysql" scheme="https://wuyf.me/tags/mysql/"/>
     
-      <category term="show create event" scheme="https://kymtwyf.github.io/tags/show-create-event/"/>
+      <category term="show create event" scheme="https://wuyf.me/tags/show-create-event/"/>
     
-      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://wuyf.me/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[spring parameter validation in json]]></title>
-    <link href="https://kymtwyf.github.io/2016/01/19/spring-parameter-validation/"/>
-    <id>https://kymtwyf.github.io/2016/01/19/spring-parameter-validation/</id>
+    <link href="https://wuyf.me/2016/01/19/spring-parameter-validation/"/>
+    <id>https://wuyf.me/2016/01/19/spring-parameter-validation/</id>
     <published>2016-01-19T10:46:48.000Z</published>
     <updated>2017-01-13T05:13:22.000Z</updated>
     <content type="html"><![CDATA[<p>参考先摆在前面<a href="http://fruzenshtein.com/spring-mvc-validator-initbinder/" target="_blank" rel="external">Reference</a></p>
@@ -246,16 +246,16 @@
 <p>这两天写代码遇到一个问]]>
     </summary>
     
-      <category term="Spring Validator" scheme="https://kymtwyf.github.io/tags/Spring-Validator/"/>
+      <category term="Spring Validator" scheme="https://wuyf.me/tags/Spring-Validator/"/>
     
-      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://wuyf.me/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Filco 圣手二代87键 Mac 键对应]]></title>
-    <link href="https://kymtwyf.github.io/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/"/>
-    <id>https://kymtwyf.github.io/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/</id>
+    <link href="https://wuyf.me/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/"/>
+    <id>https://wuyf.me/2015/12/30/filco-majestouch-seriesFKBN87ML-EFB2-KEY-MAP-FOR-MAC/</id>
     <published>2015-12-30T03:01:53.000Z</published>
     <updated>2017-01-13T05:13:23.000Z</updated>
     <content type="html"><![CDATA[<p>Filco <a href="https://detail.tmall.com/item.htm?id=19332346616&amp;spm=a1z0k.7385961.1997985097.d4918997.6cQPe0&amp;_u=s41e7ioec03&amp;sku_properties=5919063:6536025" target="_blank" rel="external">这款键盘</a>我已经盯上好久了，室友有一块 Filco 蓝牙 mini 的感觉太小，手比较大的我不是很适合，而且听说蓝牙经常会有连接问题，逐决定买 87键的。最近听说朋友马上要回上海了，所以托朋友从<a href="http://www.amazon.co.jp/FILCO-US%E3%82%A2%E3%82%B9%E3%82%AD%E3%83%BC%E9%85%8D%E5%88%9787%E3%82%AD%E3%83%BC%E3%83%BB%E5%89%8D%E9%9D%A2%E5%8D%B0%E5%88%B7-%E7%8B%ACCherryMX%E9%BB%92%E8%BB%B8%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81%E3%83%A1%E3%82%AB%E3%83%8B%E3%82%AB%E3%83%AB%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89-FKBN87ML-EFB2/dp/B0050ODQEI/ref=sr_1_1?ie=UTF8&amp;qid=1453962563&amp;sr=8-1&amp;keywords=FKBN87ML%2FEFB2" target="_blank" rel="external">日亚</a>上面买了一块(型号号为<code>FKBN87ML/EFB2</code>)。 比较中意侧刻的键盘，87键大小也正好合适，还有<a href="http://www.amazon.co.jp/Majestouch-2-Tenkeyless-Linear-Keyboard-FKBN87ML/dp/B01AN0JUKM/ref=sr_1_2?ie=UTF8&amp;qid=1453962515&amp;sr=8-2&amp;keywords=FKBN87ML%2FEB2" target="_blank" rel="external">正刻的</a>(型号为<code>FKBN87ML/EB2</code>)。11940 JPY 折合约 650 RMB ，比 X 宝便宜了200块。</p>
@@ -277,18 +277,18 @@
     <![CDATA[<p>Filco <a href="https://detail.tmall.com/item.htm?id=19332346616&amp;spm=a1z0k.7385961.1997985097.d4918997.6cQPe0&amp;_u=s41e7ioec03&amp;s]]>
     </summary>
     
-      <category term="Filco" scheme="https://kymtwyf.github.io/tags/Filco/"/>
+      <category term="Filco" scheme="https://wuyf.me/tags/Filco/"/>
     
-      <category term="Mac" scheme="https://kymtwyf.github.io/tags/Mac/"/>
+      <category term="Mac" scheme="https://wuyf.me/tags/Mac/"/>
     
-      <category term="Tools" scheme="https://kymtwyf.github.io/categories/Tools/"/>
+      <category term="Tools" scheme="https://wuyf.me/categories/Tools/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Works Applications 实习经历]]></title>
-    <link href="https://kymtwyf.github.io/2015/12/22/internship-at-works-applications/"/>
-    <id>https://kymtwyf.github.io/2015/12/22/internship-at-works-applications/</id>
+    <link href="https://wuyf.me/2015/12/22/internship-at-works-applications/"/>
+    <id>https://wuyf.me/2015/12/22/internship-at-works-applications/</id>
     <published>2015-12-22T08:17:57.000Z</published>
     <updated>2017-01-13T05:13:24.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Works_Appliations">Works Appliations</h2><h3 id="面试经过">面试经过</h3><p>关于这家公司的印象大致也就是给的工资比较多，比一般应届毕业生高出不少，其他就没有多少了。</p>
@@ -332,18 +332,18 @@
 <p>后面通宣讲会知道是做ERP]]>
     </summary>
     
-      <category term="Internship" scheme="https://kymtwyf.github.io/tags/Internship/"/>
+      <category term="Internship" scheme="https://wuyf.me/tags/Internship/"/>
     
-      <category term="Works Applications" scheme="https://kymtwyf.github.io/tags/Works-Applications/"/>
+      <category term="Works Applications" scheme="https://wuyf.me/tags/Works-Applications/"/>
     
-      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://wuyf.me/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[基于token验证的web应用jAccount登录]]></title>
-    <link href="https://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/"/>
-    <id>https://kymtwyf.github.io/2015/11/13/jaccount-login-for-token-based-webapp/</id>
+    <link href="https://wuyf.me/2015/11/13/jaccount-login-for-token-based-webapp/"/>
+    <id>https://wuyf.me/2015/11/13/jaccount-login-for-token-based-webapp/</id>
     <published>2015-11-13T15:01:19.000Z</published>
     <updated>2017-01-13T05:13:24.000Z</updated>
     <content type="html"><![CDATA[<p>最近在做一个学校的项目，需要提供给上海交通大学学生和老师使用，所以需要使用<a href="http://developer.sjtu.edu.cn/wiki/JAccount" target="_blank" rel="external">jAccount登录</a></p>
@@ -411,22 +411,22 @@
     <![CDATA[<p>最近在做一个学校的项目，需要提供给上海交通大学学生和老师使用，所以需要使用<a href="http://developer.sjtu.edu.cn/wiki/JAccount" target="_blank" rel="external">jAccount登录</a></]]>
     </summary>
     
-      <category term="jAccount" scheme="https://kymtwyf.github.io/tags/jAccount/"/>
+      <category term="jAccount" scheme="https://wuyf.me/tags/jAccount/"/>
     
-      <category term="sjtu" scheme="https://kymtwyf.github.io/tags/sjtu/"/>
+      <category term="sjtu" scheme="https://wuyf.me/tags/sjtu/"/>
     
-      <category term="spring" scheme="https://kymtwyf.github.io/tags/spring/"/>
+      <category term="spring" scheme="https://wuyf.me/tags/spring/"/>
     
-      <category term="token based auth" scheme="https://kymtwyf.github.io/tags/token-based-auth/"/>
+      <category term="token based auth" scheme="https://wuyf.me/tags/token-based-auth/"/>
     
-      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://wuyf.me/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HackShanghai 2015小记]]></title>
-    <link href="https://kymtwyf.github.io/2015/11/11/hackshanghai2015/"/>
-    <id>https://kymtwyf.github.io/2015/11/11/hackshanghai2015/</id>
+    <link href="https://wuyf.me/2015/11/11/hackshanghai2015/"/>
+    <id>https://wuyf.me/2015/11/11/hackshanghai2015/</id>
     <published>2015-11-10T16:13:21.000Z</published>
     <updated>2017-01-13T05:13:25.000Z</updated>
     <content type="html"><![CDATA[<p>上周末（2015.11.07-08）两天去上海纽约大学（一所很土豪的学校，据说学费是4.5万刀一年）参加了黑客马拉松比赛。</p>
@@ -465,22 +465,22 @@
 <p>这是我第二次参加此活动，去年由畅哥带领着做了一次。上次参赛的项目大概的idea是用pepple watch发送简单的自定义消息。比如亲人]]>
     </summary>
     
-      <category term="Android" scheme="https://kymtwyf.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://wuyf.me/tags/Android/"/>
     
-      <category term="Nao Robot" scheme="https://kymtwyf.github.io/tags/Nao-Robot/"/>
+      <category term="Nao Robot" scheme="https://wuyf.me/tags/Nao-Robot/"/>
     
-      <category term="Python" scheme="https://kymtwyf.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://wuyf.me/tags/Python/"/>
     
-      <category term="hackshanghai" scheme="https://kymtwyf.github.io/tags/hackshanghai/"/>
+      <category term="hackshanghai" scheme="https://wuyf.me/tags/hackshanghai/"/>
     
-      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://wuyf.me/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Sequel Pro 导出表结构图]]></title>
-    <link href="https://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/"/>
-    <id>https://kymtwyf.github.io/2015/10/12/Sequel-Pro-export-table-schema-diagram/</id>
+    <link href="https://wuyf.me/2015/10/12/Sequel-Pro-export-table-schema-diagram/"/>
+    <id>https://wuyf.me/2015/10/12/Sequel-Pro-export-table-schema-diagram/</id>
     <published>2015-10-11T16:52:28.000Z</published>
     <updated>2017-01-13T05:13:26.000Z</updated>
     <content type="html"><![CDATA[<h1 id="步骤">步骤</h1><ol>
@@ -499,22 +499,22 @@
 <li>用Sequel Pro导出<a href="https://en.wikipedia.org/wiki/DOT_(graph_description_language" target="_blank" rel="extern]]>
     </summary>
     
-      <category term="Mac" scheme="https://kymtwyf.github.io/tags/Mac/"/>
+      <category term="Mac" scheme="https://wuyf.me/tags/Mac/"/>
     
-      <category term="Sequel Pro" scheme="https://kymtwyf.github.io/tags/Sequel-Pro/"/>
+      <category term="Sequel Pro" scheme="https://wuyf.me/tags/Sequel-Pro/"/>
     
-      <category term="mysql" scheme="https://kymtwyf.github.io/tags/mysql/"/>
+      <category term="mysql" scheme="https://wuyf.me/tags/mysql/"/>
     
-      <category term="table schema" scheme="https://kymtwyf.github.io/tags/table-schema/"/>
+      <category term="table schema" scheme="https://wuyf.me/tags/table-schema/"/>
     
-      <category term="Tools" scheme="https://kymtwyf.github.io/categories/Tools/"/>
+      <category term="Tools" scheme="https://wuyf.me/categories/Tools/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Error Could not symlink share/man/man7/]]></title>
-    <link href="https://kymtwyf.github.io/2015/10/12/brew-priviledge/"/>
-    <id>https://kymtwyf.github.io/2015/10/12/brew-priviledge/</id>
+    <link href="https://wuyf.me/2015/10/12/brew-priviledge/"/>
+    <id>https://wuyf.me/2015/10/12/brew-priviledge/</id>
     <published>2015-10-11T16:43:49.000Z</published>
     <updated>2017-01-13T05:13:27.000Z</updated>
     <content type="html"><![CDATA[<p>用brew安装包的时候出现<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error: Could not symlink share/<span class="keyword">man</span>/man7/graphviz.7 </span><br><span class="line">/usr/local/share/<span class="keyword">man</span>/man7 <span class="keyword">is</span> not writable.</span><br><span class="line">错误。</span><br></pre></td></tr></table></figure></p>
@@ -527,14 +527,14 @@
     <![CDATA[<p>用brew安装包的时候出现<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2]]>
     </summary>
     
-      <category term="Tech" scheme="https://kymtwyf.github.io/categories/Tech/"/>
+      <category term="Tech" scheme="https://wuyf.me/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[小A、小B和小C同学的外包项目]]></title>
-    <link href="https://kymtwyf.github.io/2015/10/02/B/"/>
-    <id>https://kymtwyf.github.io/2015/10/02/B/</id>
+    <link href="https://wuyf.me/2015/10/02/B/"/>
+    <id>https://wuyf.me/2015/10/02/B/</id>
     <published>2015-10-01T16:00:00.000Z</published>
     <updated>2017-01-13T05:13:28.000Z</updated>
     <content type="html"><![CDATA[<h1 id="小A的项目">小A的项目</h1><p>小A最近在谈一个项目，对方是个品牌策划公司（N），负责帮一些知名企业如欧莱雅等策划线上推广方案。公司规划不大，但和欧方关系不错，所以承接了个在微信平台做一款新产品的宣传的项目。由于N公司技术方面没有储备，所以希望找到小A这样的几个同学把项目做下来。对于小A这样的学生来说N公司开价还算不错，所以小A和几个同学商量了一下准备这个项目。项目初期还和欧公司有详细的需求讨论和商议。</p>
@@ -554,16 +554,16 @@
     <![CDATA[<h1 id="小A的项目">小A的项目</h1><p>小A最近在谈一个项目，对方是个品牌策划公司（N），负责帮一些知名企业如欧莱雅等策划线上推广方案。公司规划不大，但和欧方关系不错，所以承接了个在微信平台做一款新产品的宣传的项目。由于N公司技术方面没有储备，所以希望找到小A这样]]>
     </summary>
     
-      <category term="碎碎" scheme="https://kymtwyf.github.io/tags/%E7%A2%8E%E7%A2%8E/"/>
+      <category term="碎碎" scheme="https://wuyf.me/tags/%E7%A2%8E%E7%A2%8E/"/>
     
-      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://wuyf.me/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[新域名wuyongfeng.win]]></title>
-    <link href="https://kymtwyf.github.io/2015/09/29/Happy-Birthday/"/>
-    <id>https://kymtwyf.github.io/2015/09/29/Happy-Birthday/</id>
+    <link href="https://wuyf.me/2015/09/29/Happy-Birthday/"/>
+    <id>https://wuyf.me/2015/09/29/Happy-Birthday/</id>
     <published>2015-09-29T08:53:33.000Z</published>
     <updated>2017-01-13T05:13:29.000Z</updated>
     <content type="html"><![CDATA[<p>生日当天注册了个新的域名~</p>
@@ -573,14 +573,14 @@
 ]]>
     </summary>
     
-      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://wuyf.me/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[真不好意思说我学过sql]]></title>
-    <link href="https://kymtwyf.github.io/2015/09/08/mysql-calendar-table-usage/"/>
-    <id>https://kymtwyf.github.io/2015/09/08/mysql-calendar-table-usage/</id>
+    <link href="https://wuyf.me/2015/09/08/mysql-calendar-table-usage/"/>
+    <id>https://wuyf.me/2015/09/08/mysql-calendar-table-usage/</id>
     <published>2015-09-07T16:31:09.000Z</published>
     <updated>2017-01-13T05:13:29.000Z</updated>
     <content type="html"><![CDATA[<p>最近写查询遇到这样一个情况。我需要查到一段时间（比如2015-06-15到2015-07-01）内每一天的总价格。<br>可当我写sql查询的时候，发现如果一天没有内容，那么这一天的数据将不会被sql查出来，意味着从开始到结束的日期中可能会有中断。</p>
@@ -602,20 +602,20 @@
 <figure ]]>
     </summary>
     
-      <category term="calendar table" scheme="https://kymtwyf.github.io/tags/calendar-table/"/>
+      <category term="calendar table" scheme="https://wuyf.me/tags/calendar-table/"/>
     
-      <category term="mysql" scheme="https://kymtwyf.github.io/tags/mysql/"/>
+      <category term="mysql" scheme="https://wuyf.me/tags/mysql/"/>
     
-      <category term="sql" scheme="https://kymtwyf.github.io/tags/sql/"/>
+      <category term="sql" scheme="https://wuyf.me/tags/sql/"/>
     
-      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://wuyf.me/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[前端，我只懂个皮毛]]></title>
-    <link href="https://kymtwyf.github.io/2015/09/02/my-ability-in-front-end/"/>
-    <id>https://kymtwyf.github.io/2015/09/02/my-ability-in-front-end/</id>
+    <link href="https://wuyf.me/2015/09/02/my-ability-in-front-end/"/>
+    <id>https://wuyf.me/2015/09/02/my-ability-in-front-end/</id>
     <published>2015-09-02T14:06:48.000Z</published>
     <updated>2017-01-13T05:13:30.000Z</updated>
     <content type="html"><![CDATA[<h1 id="从今天电面M家实习开始">从今天电面M家实习开始</h1><p>M家在北京招Intern，看到信息说是招Data Mining方面的实习生。想着挺高大上的，然后就抱着试一试，涨涨经验的心态发了一份自己的简历过去。</p>
@@ -637,18 +637,18 @@
 <p>结果倒是挺快，第二天（今天，2015]]>
     </summary>
     
-      <category term="front end" scheme="https://kymtwyf.github.io/tags/front-end/"/>
+      <category term="front end" scheme="https://wuyf.me/tags/front-end/"/>
     
-      <category term="web" scheme="https://kymtwyf.github.io/tags/web/"/>
+      <category term="web" scheme="https://wuyf.me/tags/web/"/>
     
-      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://wuyf.me/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[hexo installation note]]></title>
-    <link href="https://kymtwyf.github.io/2015/09/02/hexo-install-note/"/>
-    <id>https://kymtwyf.github.io/2015/09/02/hexo-install-note/</id>
+    <link href="https://wuyf.me/2015/09/02/hexo-install-note/"/>
+    <id>https://wuyf.me/2015/09/02/hexo-install-note/</id>
     <published>2015-09-02T06:38:11.000Z</published>
     <updated>2017-01-13T05:13:31.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Hexo">Hexo</h2><p>无意中参观了<a href="http://blog.guoyiliang.com/" target="_blank" rel="external">郭老板的博客</a> 发现powered by <a href="http://hexo.io" target="_blank" rel="external">Hexo</a> 终于找到一个比较不错的写博客的工具，里面的<a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme" target="_blank" rel="external">主题</a>我也比较喜欢。</p>
@@ -675,16 +675,16 @@
     <![CDATA[<h2 id="Hexo">Hexo</h2><p>无意中参观了<a href="http://blog.guoyiliang.com/" target="_blank" rel="external">郭老板的博客</a> 发现powered by <a href="http:/]]>
     </summary>
     
-      <category term="trivial" scheme="https://kymtwyf.github.io/tags/trivial/"/>
+      <category term="trivial" scheme="https://wuyf.me/tags/trivial/"/>
     
-      <category term="Diary" scheme="https://kymtwyf.github.io/categories/Diary/"/>
+      <category term="Diary" scheme="https://wuyf.me/categories/Diary/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[xiaoji]]></title>
-    <link href="https://kymtwyf.github.io/2015/09/02/2015-09-02-xiaoji/"/>
-    <id>https://kymtwyf.github.io/2015/09/02/2015-09-02-xiaoji/</id>
+    <link href="https://wuyf.me/2015/09/02/2015-09-02-xiaoji/"/>
+    <id>https://wuyf.me/2015/09/02/2015-09-02-xiaoji/</id>
     <published>2015-09-01T16:07:13.000Z</published>
     <updated>2015-09-01T16:07:13.000Z</updated>
     <content type="html"></content>
